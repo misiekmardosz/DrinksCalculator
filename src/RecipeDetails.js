@@ -7,6 +7,8 @@ import React, {useEffect, useState} from "react";
 const RecipeDetails = ({recipe, close, deleteRecipe}) => {
     const [currentSum,setCurrentSum]=useState(0);
     const [clear,setClear]=useState(false);
+    const [ingValue, setIngValue] =useState()
+    const [ingValue2, setIngValue2] =useState()
     useEffect(()=>{
         document.querySelector('#result').value="";
     },[])
@@ -42,11 +44,12 @@ const RecipeDetails = ({recipe, close, deleteRecipe}) => {
                   <h1>{recipe.name}</h1>
               </div>
               <form className={"form"}>
-                  <input className={'new-recipe-title'} type="text" id="num" placeholder="enter a number" />
+                  <input className={'new-recipe-title'} type="text" id="num" placeholder="enter a number" onChange={e => setIngValue(e.target.value)} />
+                  <input className={'new-recipe-title'} type="text" id="num" placeholder="enter a number" onChange={e => setIngValue2(e.target.value)} />
 
                   <button className={"button"} onClick={Add}>Add</button>
                   <button onClick={Clear}>Clear</button>
-                  <input className={"new-recipe-title"} type="text" id="result" value={currentSum}  readOnly />
+                  <input className={"new-recipe-title"} type="text" id="result" value={ingValue}  readOnly />
               </form>
           </div>
       </>

@@ -62,8 +62,8 @@ const Recipe = () => {
     // console.log(ingValue)
     const handleClickIng = (e) => {
         e.preventDefault()
-        setIngredients((preState)=>[...preState,ingName])
-        setIngredientsValue((preState)=>[...preState,ingValue])
+        setIngredients((preState)=>[...preState, ingValue])
+        setIngredientsValue((preState)=>[...preState, ingValue])
 
     }
     function openNewModal() {
