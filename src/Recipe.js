@@ -1,6 +1,8 @@
 import React, {useEffect, useState,} from 'react';
 import Modal from 'react-modal';
 import {RecipeDetails} from "./RecipeDetails";
+import {Ingridient} from "./models/Ingridient";
+import {Recipe as RecipeModel} from "./models/Recipe"
 //uuid
 
 const API_URL = 'http://localhost:3000';
@@ -11,9 +13,9 @@ const Recipe = () => {
     const [openedRecipe, setOpenedRecipe] = useState(null);
     const [name, setName] = useState("");
     const [process, setProcess] = useState("");
-    const [ingName, setIngName] = useState("");
-    const [ingValue, setIngValue] = useState();
-    const [ingredients, setIngredients] = useState([]);
+    // const [ingName, setIngName] = useState("");
+    // const [ingValue, setIngValue] = useState();
+    const [ingredients, setIngredients] = useState([new Ingridient("",0)]);
     const [ingredientsValue, setIngredientsValue] = useState([]);
     const [newRecipeModalIsOpen, setNewRecipeModalIsOpen] = React.useState(false);
     const [recipeModalIsOpen, setRecipeModalIsOpen] = React.useState(false);
@@ -41,43 +43,34 @@ const Recipe = () => {
         return recipe;
     }, {})
     const addNewRecipe = () => {
+        const recipe = new RecipeModel( name, ingredients, process);
         fetch(`${API_URL}/recipes`, {
             method: 'POST',
-            body: JSON.stringify({
-                name,
-                recipe,
-                process,
-            }),
+            body: JSON.stringify(recipe),
             headers: {
                 'Content-type': 'application/json',
             },
         })
             .then((resp) => resp.json())
-            .then((newRecipes) => {
-                setRecipes((prevState) => [...prevState, {name,recipe,process}]);
+            .then((newRecipe) => {
+                console.log(newRecipe);
+                recipe.setId(newRecipe.id)
+                setRecipes((prevState) => [...prevState, recipe]);
             });
     };
-    console.log(recipe)
     console.log(recipes)
-    // console.log(ingValue)
     const handleClickIng = (e) => {
         e.preventDefault()
-        setIngredients((preState)=>[...preState, ingValue])
-        setIngredientsValue((preState)=>[...preState, ingValue])
-
+        const ingridient = new Ingridient("", "");
+        setIngredients( prevState => [...prevState, ingridient]);
     }
     function openNewModal() {
         setNewRecipeModalIsOpen(true);
     }
 
-
     function closeNewModal(e) {
         e.preventDefault()
-        addNewRecipe()
-        setIngredients((preState)=>[...preState,ingName, ])
-        setIngredientsValue((preState)=>[...preState,ingValue])
-        setIngredients((prevState) => [])
-        setIngredientsValue((prevState) => [])
+        addNewRecipe();
         setNewRecipeModalIsOpen(false);
     }
     function openModal(recipe) {
@@ -87,7 +80,20 @@ const Recipe = () => {
     function closeModal(close) {
         setRecipeModalIsOpen(false);
     }
-    // console.log(recipes)
+    const updateIngredientName = (index, newName) => {
+        const updatedIngredients = [...ingredients];
+        updatedIngredients[index].name=newName;
+        setIngredients(updatedIngredients)
+    }
+    const updateIngredientValue = (index, newQuantity) =>{
+        const updatedIngredients = [...ingredients];
+        updatedIngredients[index].quantity= newQuantity;
+        setIngredients(updatedIngredients);
+    }
+    const updateProcess = (index, newProcess) =>{
+        const updatedProcess = [...ingredients];
+        updatedProcess[index].process=newProcess;
+    }
 
     if (loading) return <p>Trwa ładowanie...</p>;
     if (recipe.length === 0) return null;
@@ -117,19 +123,22 @@ const Recipe = () => {
                     <section className={"container"}>
                         <form className={"form"} onSubmit={closeNewModal}>
                             <input className={"new-recipe-title"} placeholder={'Drink Name'} onChange={e => setName(e.target.value)}/>
-                            <div className={'new-ing-div'}>
-                                <input className={"new-recipe-title"} placeholder={'ingredient 1'} onChange={e => setIngName(e.target.value)}/>
-                                <input type={'number'} className={"new-recipe-title"} placeholder={`quantity`} onChange={e => setIngValue(e.target.value)}/>
-                            </div>
-
                             {ingredients.map((item,index)=>(
                                 <div key={index} className={'new-ing-div'}>
-                                    <input  className={"new-recipe-title"} placeholder={`ingredient ${index+2}`} onChange={e => setIngName(e.target.value)}/>
-                                    <input type={'number'} className={"new-recipe-title"} placeholder={"quantity"} onChange={e => setIngValue(e.target.value)}/>
+                                    <input  className={"new-recipe-title"}
+                                            placeholder={`ingredient ${index+1}`}
+                                            onChange={e => updateIngredientName(index,e.target.value)}
+                                            value={ingredients[index].name}
+                                    />
+                                    <input type={'number'} className={"new-recipe-title"}
+                                           placeholder={"quantity"}
+                                           onChange={e => updateIngredientValue(index,e.target.value)}
+                                           value={ingredients[index].quantity}
+                                    />
                                 </div>
                             ))}
                             <textarea className={"new-recipe-title"} onChange={e => setProcess(e.target.value)}/>
-                            <button className={"button"} onClick={handleClickIng}>Add ingreedient</button>
+                            <button className={"button"} onClick={handleClickIng}>Add ingredient</button>
                             <button className={"button"} type={"submit"}>Save</button>
 
                         </form>

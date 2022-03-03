@@ -2,12 +2,89 @@
   "recipes": [
     {
       "id": 1,
-      "name": "Gin&Tonic",
-      "process": "pour all ingreedients to the glass, add lemmon and ice",
-      "recipe": {
-        "gin": 40,
-        "tonic": 100
-      }
+      "name": "GT",
+      "ingridients": [
+        {
+          "name": "s",
+          "quantity": "0000"
+        },
+        {
+          "name": "3",
+          "quantity": ""
+        }
+      ],
+      "process": ""
+    },
+    {
+      "id": 2,
+      "name": "sdfffs",
+      "ingridients": [
+        {
+          "name": "f",
+          "quantity": 0
+        }
+      ],
+      "process": "dfsdf"
+    },
+    {
+      "id": 3,
+      "name": "",
+      "ingridients": [
+        {
+          "name": "",
+          "quantity": 0
+        }
+      ],
+      "process": "werwerwer"
+    },
+    {
+      "id": 4,
+      "name": "sdff",
+      "ingridients": [
+        {
+          "name": "",
+          "quantity": 0
+        },
+        {
+          "name": "",
+          "quantity": ""
+        },
+        {
+          "name": "",
+          "quantity": ""
+        },
+        {
+          "name": "",
+          "quantity": ""
+        }
+      ],
+      "process": ""
+    },
+    {
+      "id": 5,
+      "name": "sdfsf",
+      "ingridients": [
+        {
+          "name": "sdfff",
+          "quantity": "5550"
+        }
+      ],
+      "process": "sdfsdfsdf"
+    },
+    {
+      "id": 6,
+      "name": "345",
+      "ingridients": [
+        {
+          "name": "sdfff",
+          "quantity": "5550"
+        },
+        {
+          "name": "dgsdf",
+          "quantity": "555"
+        }
+      ],
+      "process": "sdfsdfsdf"
     }
   ]
 }

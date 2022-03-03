@@ -5,6 +5,7 @@ import React, {useEffect, useState} from "react";
 
 
 const RecipeDetails = ({recipe, close, deleteRecipe}) => {
+    console.log(recipe.recipe)
     const [currentSum,setCurrentSum]=useState(0);
     const [clear,setClear]=useState(false);
     const [ingValue, setIngValue] =useState()
