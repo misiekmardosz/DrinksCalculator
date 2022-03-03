@@ -1,0 +1,13 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Gin&Tonic",
+      "process": "pour all ingreedients to the glass, add lemmon and ice",
+      "recipe": {
+        "gin": 40,
+        "tonic": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+.container{
+  display: flex;
+  flex-flow: wrap;
+  font-size: 20px;
+
+  div.recipe{
+    text-align: center;
+    margin: 40px;
+    font-size: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+    border-radius: 10px;
+  }
+  .form{
+    display: flex;
+    //width: 100%;
+    flex-flow: column;
+    .new-ing-div{
+      display: flex;
+    }
+    .new-recipe-title{
+      text-align: center;
+      padding: 20px 0;
+      border-radius: 10px;
+      border: 2px solid lightgreen;
+    }
+    .button{
+      padding: 20px 0;
+      margin: 10px 0 ;
+      border-radius: 10px;
+      background: lightblue;
+      border: 2px solid lightgrey;
+    }
+
+  }
+}
