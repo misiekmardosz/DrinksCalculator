@@ -1,7 +1,7 @@
 import React, {useEffect, useState,} from 'react';
 import Modal from 'react-modal';
 import {RecipeDetails} from "./RecipeDetails";
-import {Ingridient} from "./models/Ingridient";
+import {Ingredient} from "./models/ingredient";
 import {Recipe as RecipeModel} from "./models/Recipe"
 //uuid
 
@@ -15,7 +15,7 @@ const Recipe = () => {
     const [process, setProcess] = useState("");
     // const [ingName, setIngName] = useState("");
     // const [ingValue, setIngValue] = useState();
-    const [ingredients, setIngredients] = useState([new Ingridient("",0)]);
+    const [ingredients, setIngredients] = useState([new Ingredient("","")]);
     const [ingredientsValue, setIngredientsValue] = useState([]);
     const [newRecipeModalIsOpen, setNewRecipeModalIsOpen] = React.useState(false);
     const [recipeModalIsOpen, setRecipeModalIsOpen] = React.useState(false);
@@ -29,6 +29,7 @@ const Recipe = () => {
                 setLoading(false);
             });
     }, []);
+
     const deleteRecipe = (id) => {
         setLoading(true);
         fetch(`${API_URL}/recipes/${id}`, { method: 'DELETE' })
@@ -61,8 +62,8 @@ const Recipe = () => {
     console.log(recipes)
     const handleClickIng = (e) => {
         e.preventDefault()
-        const ingridient = new Ingridient("", "");
-        setIngredients( prevState => [...prevState, ingridient]);
+        const ingredient = new Ingredient("", "");
+        setIngredients( prevState => [...prevState, ingredient]);
     }
     function openNewModal() {
         setNewRecipeModalIsOpen(true);
@@ -89,10 +90,6 @@ const Recipe = () => {
         const updatedIngredients = [...ingredients];
         updatedIngredients[index].quantity= newQuantity;
         setIngredients(updatedIngredients);
-    }
-    const updateProcess = (index, newProcess) =>{
-        const updatedProcess = [...ingredients];
-        updatedProcess[index].process=newProcess;
     }
 
     if (loading) return <p>Trwa ładowanie...</p>;

@@ -5,10 +5,10 @@ export class Recipe {
      * @param id: string
      * @param name: string
      */
-    constructor(name, ingridients, process) {
+    constructor(name, ingredients, process) {
         this.id = null;
         this.name=name;
-        this.ingridients= ingridients; //array
+        this.ingredients= ingredients; //array
         this.process = process
     }
 
