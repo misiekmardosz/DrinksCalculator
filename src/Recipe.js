@@ -90,6 +90,7 @@ const Recipe = () => {
         updatedIngredients[index].quantity= newQuantity;
         setIngredients(updatedIngredients);
     }
+    // console.log(ingredients);
 
     if (loading) return <p>Trwa ładowanie...</p>;
     if (recipe.length === 0) return null;
