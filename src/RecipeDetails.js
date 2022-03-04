@@ -2,13 +2,20 @@ import React, {useState} from "react";
 
 
 const RecipeDetails = ({recipe, close, deleteRecipe}) => {
-    console.log(recipe.ingridients)
+    console.log(recipe.ingredients)
+    const handleDelete =()=>{
+        deleteRecipe(recipe.id)
+        close()
+    }
     return(
         <>
-            <div key={recipe.id} className={"form"}>
-                <h2 onClick={close}>{recipe.name}</h2>
-                <button key={recipe.id} onClick={deleteRecipe}>Delete Recipe</button>
-            </div>
+            <h2>{recipe.name}</h2>
+            <form key={recipe.id} className={"form"}>
+                {recipe.ingredients.map((ingriedient) => (
+                    <input value={ingriedient.value} />
+                ))}
+                <button key={recipe.id} onClick={handleDelete}>Delete Recipe</button>
+            </form>
         </>
     )
 }

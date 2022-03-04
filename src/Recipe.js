@@ -13,8 +13,6 @@ const Recipe = () => {
     const [openedRecipe, setOpenedRecipe] = useState(null);
     const [name, setName] = useState("");
     const [process, setProcess] = useState("");
-    // const [ingName, setIngName] = useState("");
-    // const [ingValue, setIngValue] = useState();
     const [ingredients, setIngredients] = useState([new Ingredient("","")]);
     const [ingredientsValue, setIngredientsValue] = useState([]);
     const [newRecipeModalIsOpen, setNewRecipeModalIsOpen] = React.useState(false);
@@ -43,7 +41,9 @@ const Recipe = () => {
         recipe[ingredients[index]] = field;
         return recipe;
     }, {})
-    const addNewRecipe = () => {
+    // const addNewRecipe = (recipe) => {
+     const addNewRecipe = () => {
+       // TODO :: to remove after moving fomr to seperate compoenent
         const recipe = new RecipeModel( name, ingredients, process);
         fetch(`${API_URL}/recipes`, {
             method: 'POST',
@@ -59,7 +59,6 @@ const Recipe = () => {
                 setRecipes((prevState) => [...prevState, recipe]);
             });
     };
-    console.log(recipes)
     const handleClickIng = (e) => {
         e.preventDefault()
         const ingredient = new Ingredient("", "");

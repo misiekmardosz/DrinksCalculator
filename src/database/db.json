@@ -2,18 +2,18 @@
   "recipes": [
     {
       "id": 1,
-      "name": "Gin & Tonic",
-      "ingridients": [
+      "name": "gg",
+      "ingredients": [
         {
-          "name": "Gin",
-          "quantity": "40"
+          "name": "g",
+          "quantity": "1"
         },
         {
-          "name": "Tonic",
-          "quantity": "100"
+          "name": "t",
+          "quantity": "3"
         }
       ],
-      "process": "pour gin and tonic to the glass add some ice and lice of a lime"
+      "process": ""
     }
   ]
 }
