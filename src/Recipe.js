@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import {RecipeDetails} from "./RecipeDetails";
 import {Ingredient} from "./models/ingredient";
 import {Recipe as RecipeModel} from "./models/Recipe"
+import {GlassDetails} from "./GlassDetails";
 //uuid
 
 const API_URL = 'http://localhost:3000';
@@ -17,6 +18,7 @@ const Recipe = () => {
     const [ingredientsValue, setIngredientsValue] = useState([]);
     const [newRecipeModalIsOpen, setNewRecipeModalIsOpen] = React.useState(false);
     const [recipeModalIsOpen, setRecipeModalIsOpen] = React.useState(false);
+    const [glassModalIsOpen, setGlassModalIsOpen] = React.useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -80,6 +82,12 @@ const Recipe = () => {
     function closeModal(close) {
         setRecipeModalIsOpen(false);
     }
+    function openGlassModal(glassOpen){
+        setGlassModalIsOpen(true)
+    }
+    function closeGlassModal(glassClose){
+        setGlassModalIsOpen(false)
+    }
     const updateIngredientName = (index, newName) => {
         const updatedIngredients = [...ingredients];
         updatedIngredients[index].name=newName;
@@ -97,10 +105,17 @@ const Recipe = () => {
     if (recipe.length === 0) return null;
     return (
         <>
+            <header>
+                <h1 className={"app--name"}>DRINKS CALCULATOR</h1>
+            </header>
             <section className={"container"}>
                 <div className={"recipe"} onClick={openNewModal}>
-                    <h1>Add New</h1>
+                    <h2>Add New</h2>
                 </div>
+                <div className={"recipe"} onClick={openGlassModal}>
+                    <h2>Add New Glass</h2>
+                </div>
+                <div className={"my--recipes"}><h2 className={"app--name"}>MY RECIPES</h2></div>
                 {recipes.map((recipe) => (
                     <div key={recipe.id} className={"recipe"} onClick={ () => openModal(recipe)}>
                         <h2>{recipe.name}</h2>
@@ -112,6 +127,12 @@ const Recipe = () => {
                     ariaHideApp={false}
                 >
                     <RecipeDetails recipe={openedRecipe} open={recipeModalIsOpen} close={closeModal} deleteRecipe={deleteRecipe}/>
+                </Modal>
+                <Modal
+                    isOpen={glassModalIsOpen}
+                    onRequestClose={closeGlassModal}
+                >
+                    <GlassDetails glass={glassModalIsOpen} openGlass={closeGlassModal}/>
                 </Modal>
                 <Modal
                     isOpen={newRecipeModalIsOpen}
