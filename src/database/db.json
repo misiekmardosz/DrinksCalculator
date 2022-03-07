@@ -1,3 +1,38 @@
 {
-  "recipes": []
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Gin&Tonic",
+      "ingredients": [
+        {
+          "name": "Gin ",
+          "quantity": "40"
+        },
+        {
+          "name": "Tonic",
+          "quantity": "100"
+        }
+      ],
+      "process": "pour things to the glass"
+    },
+    {
+      "id": 2,
+      "name": "TEQUILA SUNRISE",
+      "ingredients": [
+        {
+          "name": "Teq",
+          "quantity": "100"
+        },
+        {
+          "name": "juice",
+          "quantity": "400"
+        },
+        {
+          "name": "ice",
+          "quantity": "2"
+        }
+      ],
+      "process": ""
+    }
+  ]
 }

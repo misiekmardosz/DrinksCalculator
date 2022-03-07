@@ -13,7 +13,7 @@ const Recipe = () => {
     const [openedRecipe, setOpenedRecipe] = useState(null);
     const [name, setName] = useState("");
     const [process, setProcess] = useState("");
-    const [ingredients, setIngredients] = useState([new Ingredient("","")]);
+    const [ingredients, setIngredients] = useState([new Ingredient("",null)]);
     const [ingredientsValue, setIngredientsValue] = useState([]);
     const [newRecipeModalIsOpen, setNewRecipeModalIsOpen] = React.useState(false);
     const [recipeModalIsOpen, setRecipeModalIsOpen] = React.useState(false);
@@ -61,7 +61,7 @@ const Recipe = () => {
     };
     const handleClickIng = (e) => {
         e.preventDefault()
-        const ingredient = new Ingredient("", "");
+        const ingredient = new Ingredient("", null);
         setIngredients( prevState => [...prevState, ingredient]);
     }
     function openNewModal() {
@@ -90,6 +90,7 @@ const Recipe = () => {
         updatedIngredients[index].quantity= newQuantity;
         setIngredients(updatedIngredients);
     }
+
     // console.log(ingredients);
 
     if (loading) return <p>Trwa ładowanie...</p>;
@@ -110,7 +111,7 @@ const Recipe = () => {
                     onRequestClose={closeModal}
                     ariaHideApp={false}
                 >
-                    <RecipeDetails recipes={recipes} recipe={openedRecipe} open={recipeModalIsOpen} close={closeModal} deleteRecipe={deleteRecipe}/>
+                    <RecipeDetails recipe={openedRecipe} open={recipeModalIsOpen} close={closeModal} deleteRecipe={deleteRecipe}/>
                 </Modal>
                 <Modal
                     isOpen={newRecipeModalIsOpen}
@@ -134,8 +135,8 @@ const Recipe = () => {
                                     />
                                 </div>
                             ))}
-                            <textarea className={"new-recipe-title"} onChange={e => setProcess(e.target.value)}/>
                             <button className={"button"} onClick={handleClickIng}>Add ingredient</button>
+                            <textarea className={"new-recipe-title"} onChange={e => setProcess(e.target.value)}/>
                             <button className={"button"} type={"submit"}>Save</button>
 
                         </form>
