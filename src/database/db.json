@@ -14,6 +14,21 @@
         }
       ],
       "process": "pour everything to the glass filled with ice and slice of lime"
+    },
+    {
+      "id": 2,
+      "name": "Śrubokręt",
+      "ingredients": [
+        {
+          "name": "Wodka",
+          "quantity": "40"
+        },
+        {
+          "name": "Juice",
+          "quantity": "100"
+        }
+      ],
+      "process": "pour everything together"
     }
   ],
   "glasses": [
@@ -41,6 +56,11 @@
       "name": "Gin Glass",
       "volume": "250",
       "id": 5
+    },
+    {
+      "name": "Wine Glass",
+      "volume": "150",
+      "id": 6
     }
   ]
 }
