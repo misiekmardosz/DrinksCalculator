@@ -32,7 +32,7 @@ const Recipe = () => {
     recipes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
 
 
-    console.log(glasses)
+    // console.log(glasses)
 
     useEffect(() => {
         setLoading(true);
@@ -67,7 +67,7 @@ const Recipe = () => {
         })
             .then((resp) => resp.json())
             .then((newRecipe) => {
-                console.log(newRecipe);
+                // console.log(newRecipe);
                 recipe.setId(newRecipe.id)
                 setRecipes((prevState) => [...prevState, recipe]);
             });
@@ -95,7 +95,7 @@ const Recipe = () => {
         })
             .then((resp) => resp.json())
             .then((newGlass) => {
-                console.log(newGlass);
+                // console.log(newGlass);
                 glass.setId(newGlass.id)
                 setGlasses((prevState) => [...prevState, glass]);
             });

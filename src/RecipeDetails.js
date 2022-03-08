@@ -8,13 +8,14 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
 
     const [newQ, setNewQ] = useState(1)
     // const [glass, setGlass] = useState(glasses[0].name)
-    const [selectedOption, setSelectedOption] = useState();
+    const [selectedOption, setSelectedOption] = useState({label:'select glass typeg', value:0});
     const sum = recipe.ingredients.reduce((total, amount) =>
         total + parseInt(amount.quantity), 0);
     // const volume = glass.match(/\d/g);
 
     const glassesSelector = glasses.map(glass => ({ label: glass.name, value: glass.volume }));
-    console.log(glassesSelector)
+    console.log(selectedOption)
+    console.log(glassesSelector[0])
 
 
 
@@ -25,7 +26,7 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
     //     { name: 'orchestra', label: 'Orchestra' }
     // ];
 
-    console.log(sum)
+    // console.log(sum)
     const handleDelete =()=>{
         deleteRecipe(recipe.id)
         close()
@@ -37,7 +38,7 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
         const drinksQuantity = [newQuantity];
         setNewQ(drinksQuantity);
     }
-    console.log(selectedOption)
+    // console.log(selectedOption)
     // console.log(newQ)
 
     return(
@@ -55,7 +56,7 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                     {/*    ))}*/}
                     {/*</select>*/}
                     <Select
-                        defaultValue={glassesSelector[0]}
+                        defaultValue={selectedOption}
                         onChange={setSelectedOption}
                         options={glassesSelector}
                     />
