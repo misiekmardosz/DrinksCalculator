@@ -21,6 +21,21 @@
       "name": "Shot Glass",
       "volume": "40",
       "id": 1
+    },
+    {
+      "name": "Ikea Glass",
+      "volume": "300",
+      "id": 2
+    },
+    {
+      "name": "Short Glass",
+      "volume": "200",
+      "id": 3
+    },
+    {
+      "name": "fsfsdf",
+      "volume": "1000",
+      "id": 4
     }
   ]
 }

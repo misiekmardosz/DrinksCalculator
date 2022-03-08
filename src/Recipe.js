@@ -3,7 +3,6 @@ import Modal from 'react-modal';
 import {RecipeDetails} from "./RecipeDetails";
 import {Ingredient} from "./models/ingredient";
 import {Recipe as RecipeModel} from "./models/Recipe"
-import {GlassDetails} from "./GlassDetails";
 import {Glass} from "./models/glass";
 //uuid
 
@@ -20,7 +19,7 @@ const Recipe = () => {
     const [newRecipeModalIsOpen, setNewRecipeModalIsOpen] = React.useState(false);
     const [recipeModalIsOpen, setRecipeModalIsOpen] = React.useState(false);
     const [glassModalIsOpen, setGlassModalIsOpen] = React.useState(false);
-    const [glassLoading, setGlassLoading] = useState(false);
+    // const [glassLoading, setGlassLoading] = useState(false);
     const [glasses, setGlasses] = useState([new Glass("",null)]);
     const [glassName, setGlassName] = useState("")
     const [volume, setVolume] = useState("")
@@ -80,7 +79,7 @@ const Recipe = () => {
             .then((response) => response.json())
             .then((data) => {
                 setGlasses(data);
-                setGlassLoading(false);
+                setLoading(false);
             });
     }, []);
 
@@ -124,7 +123,7 @@ const Recipe = () => {
         setRecipeModalIsOpen(false);
         setGlassModalIsOpen(false)
         setIngredients([new Ingredient("",null)])
-        setGlasses([new Glass("",null)])
+        // setGlasses([new Glass("",null)])
         setName("")
 
     }
@@ -141,7 +140,7 @@ const Recipe = () => {
     function closeGlassModal(glassClose){
         addNewGlass()
         setGlassModalIsOpen(false)
-        setGlasses([new Glass("",null)])
+        // setGlasses([new Glass("",null)])
     }
     const updateIngredientName = (index, newName) => {
         const updatedIngredients = [...ingredients];
