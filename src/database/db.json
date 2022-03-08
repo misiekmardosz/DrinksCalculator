@@ -5,7 +5,7 @@
       "name": "Gin&Tonic",
       "ingredients": [
         {
-          "name": "Gin ",
+          "name": "Gin",
           "quantity": "40"
         },
         {
@@ -13,29 +13,14 @@
           "quantity": "100"
         }
       ],
-      "process": "pour things to the glass"
-    },
-    {
-      "id": 2,
-      "name": "TEQUILA SUNRISE",
-      "ingredients": [
-        {
-          "name": "Teq",
-          "quantity": "100"
-        },
-        {
-          "name": "juice",
-          "quantity": "400"
-        },
-        {
-          "name": "ice",
-          "quantity": "2"
-        }
-      ],
-      "process": ""
+      "process": "pour everything to the glass filled with ice and slice of lime"
     }
   ],
   "glasses": [
-
+    {
+      "name": "Shot Glass",
+      "volume": "40",
+      "id": 1
+    }
   ]
 }

@@ -2,29 +2,19 @@ import React, {useState} from "react";
 import {Ingredient} from "./models/ingredient";
 
 
-const glassType = [{
-        name: "shot glass",
-        size: 40,
-    },
-    {
-        name: "long glass",
-        size: 310
-    }
-]
 
 
-
-const RecipeDetails = ({recipe, close, deleteRecipe}) => {
+const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
 
     const [newQ, setNewQ] = useState(1)
-    const [glass, setGlass] = useState(glassType[0].name)
+    const [glass, setGlass] = useState(glasses[0].name)
     const sum = recipe.ingredients.reduce((total, amount) =>
         total + parseInt(amount.quantity), 0);
     const handleChange =(e) => {
         setGlass(e.target.value);
     }
-    const volume = glass.match(/\d/g);
-    console.log(volume)
+    // const volume = glass.match(/\d/g);
+    console.log(glass)
 
     console.log(sum)
     const handleDelete =()=>{
@@ -43,24 +33,33 @@ const RecipeDetails = ({recipe, close, deleteRecipe}) => {
 
     return(
         <>
-            <h2> Prepare Your {recipe.name}!</h2>
-            <h3>How Many Drinks You want to do?</h3>
+            <div className={"container"}>
+                <h2> Prepare Your {recipe.name}!</h2>
+                <h4>How Many Drinks You want to do?</h4>
 
-            <form key={recipe.id} className={"form"} onSubmit={close}>
-                <input type="number" placeholder='set Value'onChange={e => drinksQuantity(e.target.value)}/>
-                <h3>What type of Glass You Have?</h3>
-                <select value={glass} onChange={handleChange}>
-                    {glassType.map((glass,index) => (
-                        <option>{glass.name} {glass.size}.ml</option>
-                    ))}
-                </select>
-                <h4>You Need</h4>
-                {recipe.ingredients.map((ingredient,index) => (
-                    <h5>{ingredient.name} {ingredient.quantity*newQ/sum}</h5>
-                ))}
-                <button key={recipe.id} onClick={handleDelete}>Delete Recipe</button>
-            </form>
-            <p>{recipe.process}</p>
+                <form key={recipe.id} className={"form"} onSubmit={close}>
+                    <input type="number" className={"new-recipe-ing"} placeholder='set Value'onChange={e => drinksQuantity(e.target.value)}/>
+                    <h4>What type of Glass You Have?</h4>
+                    <select className={"button"} value={glasses} onChange={handleChange}>
+                        {glasses.map((glass,index) => (
+                            <option>{glass.name} {glass.volume}.ml</option>
+                        ))}
+                    </select>
+                    <h4>You Need</h4>
+                    <ul>
+                        {recipe.ingredients.map((ingredient,index) => (
+                            <li>{ingredient.name} {Math.round(ingredient.quantity*newQ/sum*100)/100}</li>
+                        ))}
+                    </ul>
+                    <h4>Process</h4>
+                    <p>{recipe.process}</p>
+                    <button className={"cancel--btn"} onClick={cancel}>Cancel</button>
+                    <button className={"button"} key={recipe.id} onClick={handleDelete}>Delete Recipe</button>
+                </form>
+
+
+            </div>
+
         </>
     )
 }
