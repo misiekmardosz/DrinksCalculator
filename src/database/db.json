@@ -69,26 +69,5 @@
       "process": "pour ingredients to the glass and add ice and bitters"
     }
   ],
-  "glasses": [
-    {
-      "id": 2,
-      "name": "short",
-      "volume": "50"
-    },
-    {
-      "id": 3,
-      "name": "long",
-      "volume": "300"
-    },
-    {
-      "id": 4,
-      "name": "Long Glass",
-      "volume": "400"
-    },
-    {
-      "id": 5,
-      "name": "Johnny Walker Glass",
-      "volume": "250"
-    }
-  ]
+  "glasses": []
 }
