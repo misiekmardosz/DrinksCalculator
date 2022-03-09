@@ -52,6 +52,21 @@
         }
       ],
       "process": "Pour everything to the glass add ice "
+    },
+    {
+      "id": 5,
+      "name": "Lemmy",
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "quantity": "60"
+        },
+        {
+          "name": "Cola",
+          "quantity": "300"
+        }
+      ],
+      "process": "pour ingredients to the glass and add ice and bitters"
     }
   ],
   "glasses": [
@@ -69,6 +84,11 @@
       "id": 4,
       "name": "Long Glass",
       "volume": "400"
+    },
+    {
+      "id": 5,
+      "name": "Johnny Walker Glass",
+      "volume": "250"
     }
   ]
 }

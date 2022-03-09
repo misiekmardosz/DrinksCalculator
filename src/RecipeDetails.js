@@ -40,6 +40,19 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                         onChange={setSelectedOption}
                         options={glassesSelector}
                     />
+                    <h4 className={"recipe--details--text"}>Recipe for One Drink</h4>
+                    <div className={"list"}>
+                        <ul className={"process"}>
+                            {recipe.ingredients.map((ingredient,index) => (
+                                <li>{ingredient.name}</li>
+                            ))}
+                        </ul>
+                        <ul>
+                            {recipe.ingredients.map((ingredient,index) => (
+                                <li>{Math.round(ingredient.quantity*selectedOption.value/sum)}.ml</li>
+                            ))}
+                        </ul>
+                    </div>
                     <h4 className={"recipe--details--text"}>You Need</h4>
                     <div className={"list"}>
                     <ul className={"process"}>
@@ -53,15 +66,8 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                             ))}
                         </ul>
                     </div>
-                    <h4 className={"recipe--details--text"}>Recipe</h4>
-                    <div className={"list--process"}>
-                        <ul>
-                        {recipe.ingredients.map((ingredient,index) => (
-                            <li>{ingredient.name}{ingredient.quantity}.ml</li>
-                        ))}
-                        </ul>
-                    </div>
-                    <h4 className={"recipe--details--text"}>Recipe</h4>
+
+                    <h4 className={"recipe--details--text"}>Process</h4>
                     <div className={"list--process"}>
                         <p>{recipe.process}</p>
                     </div>
