@@ -167,7 +167,6 @@ ul{
   background-color: #ccfccc;
   display: flex;
   justify-content: space-between;
-  //padding: 20px 0;
   width: 100%;
   height: auto;
 }
@@ -230,6 +229,7 @@ ul{
 }
 .glassList{
   font-size: 14px;
+  width: 100%;
 }
 .my--glasses{
   text-align: center;
@@ -241,4 +241,16 @@ ul{
   background-color: #7c6969;
   border: 2px solid lightgrey;
   border-radius: 5px;
+}
+
+.glassListItem{
+  font-weight: bold;
+  border: 2px solid lightgrey;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #ccfccc;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  align-items: center;
 }

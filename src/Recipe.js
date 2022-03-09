@@ -16,7 +16,6 @@ const Recipe = () => {
     const [name, setName] = useState("");
     const [process, setProcess] = useState("");
     const [ingredients, setIngredients] = useState([new Ingredient("",null)]);
-    const [ingredientsValue, setIngredientsValue] = useState([]);
     const [newRecipeModalIsOpen, setNewRecipeModalIsOpen] = React.useState(false);
     const [recipeModalIsOpen, setRecipeModalIsOpen] = React.useState(false);
     const [glassModalIsOpen, setGlassModalIsOpen] = React.useState(false);
@@ -24,14 +23,9 @@ const Recipe = () => {
     const [glassName, setGlassName] = useState("")
     const [volume, setVolume] = useState("")
 
-    const recipe =  ingredientsValue.reduce(function(recipe, field, index) {
-        recipe[ingredients[index]] = field;
-        return recipe;
-    }, {})
-
     recipes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
 
-
+    // RECIPE SOURCE//
 
     useEffect(() => {
         setLoading(true);
@@ -43,21 +37,7 @@ const Recipe = () => {
             });
     }, []);
 
-
-    const deleteRecipe = (id) => {
-        setLoading(true);
-        fetch(`${API_URL}/recipes/${id}`, { method: 'DELETE' })
-            .then((response) => response.json())
-            .then(() => {
-                setRecipes((prevState) => prevState.filter((recipe) => recipe.id !== id));
-                setLoading(false);
-            });
-    };
-
-
-    // const addNewRecipe = (recipe) => {
     const addNewRecipe = () => {
-        // TODO :: to remove after moving fomr to seperate compoenent
         const recipe = new RecipeModel( name, ingredients, process);
         fetch(`${API_URL}/recipes`, {
             method: 'POST',
@@ -72,6 +52,18 @@ const Recipe = () => {
                 setRecipes((prevState) => [...prevState, recipe]);
             });
     };
+    const deleteRecipe = (id) => {
+        setLoading(true);
+        fetch(`${API_URL}/recipes/${id}`, { method: 'DELETE' })
+            .then((response) => response.json())
+            .then(() => {
+                setRecipes((prevState) => prevState.filter((recipe) => recipe.id !== id));
+                setLoading(false);
+            });
+    };
+
+
+    // GLASS SOURCE//
 
     useEffect(() => {
         setLoading(true);
@@ -99,7 +91,6 @@ const Recipe = () => {
                 setGlasses((prevState) => [...prevState, glass]);
             });
     };
-    console.log(glasses)
 
 
     const deleteGlass = (id) => {
@@ -116,7 +107,7 @@ const Recipe = () => {
         deleteGlass(id)
     }
 
-    const handleClickIng = (e) => {
+    const handleAddIng = (e) => {
         e.preventDefault()
         const ingredient = new Ingredient("", null);
         setIngredients( prevState => [...prevState, ingredient]);
@@ -133,31 +124,31 @@ const Recipe = () => {
         setIngredients([new Ingredient("",null)])
         setName("")
     }
+
+    function openModal(recipe) {
+        setOpenedRecipe(recipe);
+        setRecipeModalIsOpen(true);
+    }
+    function closeModal() {
+        setRecipeModalIsOpen(false);
+    }
+    function openGlassModal(){
+        setGlassModalIsOpen(true)
+    }
+    function saveGlassModal(e){
+        e.preventDefault()
+        if (glassName === "" || volume==="") return setGlassModalIsOpen(true)
+        addNewGlass()
+        setGlassName("")
+        setVolume("")
+    }
+
     function cancelButton() {
         setNewRecipeModalIsOpen(false);
         setRecipeModalIsOpen(false);
         setGlassModalIsOpen(false)
         setIngredients([new Ingredient("",null)])
-        // setGlasses([new Glass("",null)])
         setName("")
-
-    }
-    function openModal(recipe) {
-        setOpenedRecipe(recipe);
-        setRecipeModalIsOpen(true);
-    }
-    function closeModal(close) {
-        setRecipeModalIsOpen(false);
-    }
-    function openGlassModal(glassOpen){
-        setGlassModalIsOpen(true)
-    }
-    function saveGlassModal(e){
-        e.preventDefault()
-        if (glassName === "" | volume==="") return setGlassModalIsOpen(true)
-        addNewGlass()
-        // setGlasses([new Glass("",null)])
-
     }
     const updateIngredientName = (index, newName) => {
         const updatedIngredients = [...ingredients];
@@ -170,10 +161,7 @@ const Recipe = () => {
         setIngredients(updatedIngredients);
     }
 
-
-
     if (loading) return <p>Trwa ładowanie...</p>;
-    if (recipe.length === 0) return null;
     return (
         <>
             <header>
@@ -202,23 +190,26 @@ const Recipe = () => {
                 </Modal>
                 <Modal
                     isOpen={glassModalIsOpen}
-                    onRequestClose={saveGlassModal}
+                    onRequestClose={cancelButton}
                     portalClassName={"modal"}
                     ariaHideApp={false}
                 >
                     <section className={"container"}>
-                        <form className={"form"} onSubmit={saveGlassModal}>
+                        <form className={"form"}>
                             <input className={"new-recipe-title"} placeholder={'Glass Name'} onChange={e => setGlassName(e.target.value)}/>
                             <input className={"new-glass-title"} type={"number"} placeholder={'Volume in mililiters'} onChange={e => setVolume(e.target.value)}/>
-                            <button className={"button"} type="submit">Save</button>
+                            <button className={"button"} onClick={saveGlassModal}>Save</button>
                             <button className={"cancel--btn"} onClick={cancelButton}>Close</button>
                         </form>
                         <h3 className={"my--glasses"}>MY GLASSES</h3>
                         <ul className={"glassList"}>
                             {glasses.map((glass,index) => (
-                                <li key={index}>
+                                <li key={index} className={"glassListItem"}>
                                     <button className={"delete--glass"}
-                                            onClick={ (e) => handleGlassDelete(e, glass.id)}>DEL</button>{glass.name} {glass.volume}.ml</li>
+                                            onClick={ (e) => handleGlassDelete(e, glass.id)}>DEL
+                                    </button>
+                                    {glass.name} {glass.volume}.ml
+                                </li>
                             ))}
                         </ul>
                     </section>
@@ -247,7 +238,7 @@ const Recipe = () => {
                                     />
                                 </div>
                             ))}
-                            <button className={"ing--button"} onClick={handleClickIng}>Add ingredient</button>
+                            <button className={"ing--button"} onClick={handleAddIng}>Add ingredient</button>
                             <textarea className={"new-recipe-textarea"} placeholder={"Type Process"} onChange={e => setProcess(e.target.value)}/>
                             <button className={"button"} type={"submit"}>Save</button>
                             <button className={"cancel--btn"} onClick={cancelButton}>Cancel</button>

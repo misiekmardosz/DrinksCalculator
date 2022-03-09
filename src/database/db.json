@@ -1,21 +1,6 @@
 {
   "recipes": [
     {
-      "id": 1,
-      "name": "Gin&Tonic",
-      "ingredients": [
-        {
-          "name": "Gin",
-          "quantity": "40"
-        },
-        {
-          "name": "Tonic",
-          "quantity": "100"
-        }
-      ],
-      "process": "pour everything to the glass filled with ice and slice of lime"
-    },
-    {
       "id": 3,
       "name": "Whiskey Sour",
       "ingredients": [
@@ -67,7 +52,33 @@
         }
       ],
       "process": "pour ingredients to the glass and add ice and bitters"
+    },
+    {
+      "id": 6,
+      "name": "Gin&Tonic",
+      "ingredients": [
+        {
+          "name": "Gin",
+          "quantity": "40"
+        },
+        {
+          "name": "Tonic",
+          "quantity": "100"
+        }
+      ],
+      "process": "pour everything to the glass, add lemon and ice"
     }
   ],
-  "glasses": []
+  "glasses": [
+    {
+      "id": 1,
+      "name": "Whiskey Glass",
+      "volume": "180"
+    },
+    {
+      "id": 2,
+      "name": "Shot ",
+      "volume": "40"
+    }
+  ]
 }
