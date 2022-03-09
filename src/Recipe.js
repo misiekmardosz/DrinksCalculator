@@ -84,7 +84,6 @@ const Recipe = () => {
     }, []);
 
     const addNewGlass = (addGlass) => {
-        // TODO :: to remove after moving fomr to seperate compoenent
         const glass = new Glass(glassName,volume);
         fetch(`${API_URL}/glasses`, {
             method: 'POST',
@@ -169,7 +168,7 @@ const Recipe = () => {
                 <div className={"recipe"} onClick={openGlassModal}>
                     <h2>Add New Glass</h2>
                 </div>
-                <div className={"my--recipes"}><h2 className={"app--name"}>MY RECIPES</h2></div>
+                <h2 className={"app--recipes"}>MY RECIPES</h2>
                 {recipes.map((recipe) => (
                     <div key={recipe.id} className={"recipe"} onClick={ () => openModal(recipe)}>
                         <h2>{recipe.name}</h2>
@@ -191,17 +190,19 @@ const Recipe = () => {
                     <section className={"container"}>
                         <form className={"form"} onSubmit={closeGlassModal}>
                             <input className={"new-recipe-title"} placeholder={'Glass Name'} onChange={e => setGlassName(e.target.value)}/>
-                            <input className={"new-recipe-title"} type={"number"} placeholder={'Volume in mililiters'} onChange={e => setVolume(e.target.value)}/>
+                            <input className={"new-glass-title"} type={"number"} placeholder={'Volume in mililiters'} onChange={e => setVolume(e.target.value)}/>
                             <button className={"button"} type="submit">Save</button>
                             <button className={"cancel--btn"} onClick={cancelButton}>Cancel</button>
                         </form>
                     </section>
                 </Modal>
                 <Modal
+                    className={"eloelo"}
                     isOpen={newRecipeModalIsOpen}
                     onRequestClose={closeNewModal}
                     ariaHideApp={false}
                     portalClassName={"modal"}
+                    style={{backgroundColor:"blue"}}
                 >
                     <section className={"container"}>
                         <form className={"form"} onSubmit={closeNewModal}>
@@ -220,8 +221,8 @@ const Recipe = () => {
                                     />
                                 </div>
                             ))}
-                            <button className={"button"} onClick={handleClickIng}>Add ingredient</button>
-                            <textarea className={"new-recipe-title"} onChange={e => setProcess(e.target.value)}/>
+                            <button className={"ing--button"} onClick={handleClickIng}>Add ingredient</button>
+                            <textarea className={"new-recipe-textarea"} placeholder={"Type Process"} onChange={e => setProcess(e.target.value)}/>
                             <button className={"button"} type={"submit"}>Save</button>
                             <button className={"cancel--btn"} onClick={cancelButton}>Cancel</button>
 

@@ -16,19 +16,42 @@
       "process": "pour everything to the glass filled with ice and slice of lime"
     },
     {
-      "id": 2,
-      "name": "Śrubokręt",
+      "id": 3,
+      "name": "Whiskey Sour",
       "ingredients": [
         {
-          "name": "Wodka",
+          "name": "Whiskey ",
           "quantity": "40"
         },
         {
-          "name": "Juice",
-          "quantity": "100"
+          "name": "lemon juice",
+          "quantity": "20"
+        },
+        {
+          "name": "sugar sirup",
+          "quantity": "10"
         }
       ],
-      "process": "pour everything together"
+      "process": "Pour all ingredients into shaker filed with ice, shake it well and pour everything to the glass"
+    },
+    {
+      "id": 4,
+      "name": "Moscow Mule",
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "quantity": "40"
+        },
+        {
+          "name": "Ginger Beer",
+          "quantity": "100"
+        },
+        {
+          "name": "Lime Juice",
+          "quantity": "10"
+        }
+      ],
+      "process": "Pour everything to the glass add ice "
     }
   ],
   "glasses": [
@@ -61,6 +84,16 @@
       "name": "Wine Glass",
       "volume": "150",
       "id": 6
+    },
+    {
+      "name": "",
+      "volume": "",
+      "id": 7
+    },
+    {
+      "name": "Garnuszek",
+      "volume": "200",
+      "id": 8
     }
   ]
 }
