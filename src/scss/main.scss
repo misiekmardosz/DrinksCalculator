@@ -1,3 +1,4 @@
+
 *{
   font-family: "Helvetica Neue";
   color: #3f3f3f;
@@ -100,7 +101,7 @@ body{
       margin: 10px 0 ;
       border-radius: 10px;
       background: #ff3333;
-      border: 2px solid lightgrey;
+      border: 2px solid lightgreen;
     }
   }
 }
@@ -151,44 +152,90 @@ h4{
   border-radius: 5px;
   border: 2px solid lightgreen;
 }
-//Modal {
-//  position: absolute;
-//  margin: 202px 0;
-//  justify-content: center;
-//  inset: 35px;
-//  border: 1px solid rgb(204, 204, 204);
-//  background: rgb(255, 255, 255);
-//  overflow: auto;
-//  border-radius: 10px;
-//  height: 318px;
-//  outline: none;
-//  padding: 20px;
-//}
-.process{
-  //padding: 10px;
-  //border: 2px solid lightgreen;
-  //border-radius: 5px;
-  //background-color: #ccfccc;
-}
 ul{
   list-style-type: none;
   margin: 0;
+  margin-left: -40px;
+  li{
+    padding: 7px 7px;
+  }
 }
 .list{
-  border: 2px solid lightgreen;
+  border: 2px solid lightgrey;
   margin: 10px 0;
   border-radius: 5px;
   background-color: #ccfccc;
   display: flex;
-  padding: 10px 0;
+  justify-content: space-between;
+  //padding: 20px 0;
   width: 100%;
-}
-.eloelo{
-  box-shadow: 0px 0px 20px 7px #000000;
-  inset:40px;
-  background-color: #ffffff;
-  position: absolute;
-  padding: 10px;
-  border-radius: 5px;
   height: auto;
+}
+.list--process{
+  border: 2px solid lightgrey;
+  font-size: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #ccfccc;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  p{
+    padding: 10px;
+    margin: 0;
+  }
+}
+//.modal-open{
+//
+//
+//}
+.recipe--details--text{
+  font-size: 15px;
+  margin: 5px 0 ;
+  padding: 0;
+}
+.selector{
+  padding: 10px 0;
+}
+.ReactModal__Overlay {
+  opacity: 0;
+  animation: openingModal .15s;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+@keyframes openingModal {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.delete--glass{
+  color: white;
+  font-weight: bold;
+  background-color: red;
+  border: 2px solid lightgreen;
+  border-radius: 50px;
+  width: 40px;
+  margin-right: 20px;
+  height: 40px;
+}
+.my--glasses{
+  text-align: center;
+  color: white;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px 0;
+  font-size: 5vw;
+  background-color: #7c6969;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
 }

@@ -56,44 +56,19 @@
   ],
   "glasses": [
     {
-      "name": "Shot Glass",
-      "volume": "40",
-      "id": 1
+      "id": 2,
+      "name": "short",
+      "volume": "50"
     },
     {
-      "name": "Ikea Glass",
-      "volume": "300",
-      "id": 2
+      "id": 3,
+      "name": "long",
+      "volume": "300"
     },
     {
-      "name": "Short Glass",
-      "volume": "200",
-      "id": 3
-    },
-    {
-      "name": "fsfsdf",
-      "volume": "1000",
-      "id": 4
-    },
-    {
-      "name": "Gin Glass",
-      "volume": "250",
-      "id": 5
-    },
-    {
-      "name": "Wine Glass",
-      "volume": "150",
-      "id": 6
-    },
-    {
-      "name": "",
-      "volume": "",
-      "id": 7
-    },
-    {
-      "name": "Garnuszek",
-      "volume": "200",
-      "id": 8
+      "id": 4,
+      "name": "Long Glass",
+      "volume": "400"
     }
   ]
 }
