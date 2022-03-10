@@ -4,7 +4,7 @@ import {RecipeDetails} from "./RecipeDetails";
 import {Ingredient} from "./models/ingredient";
 import {Recipe as RecipeModel} from "./models/Recipe"
 import {Glass} from "./models/glass";
-
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 //uuid
 
 const API_URL = 'http://localhost:3000';
@@ -206,7 +206,8 @@ const Recipe = () => {
                             {glasses.map((glass,index) => (
                                 <li key={index} className={"glassListItem"}>
                                     <button className={"delete--glass"}
-                                            onClick={ (e) => handleGlassDelete(e, glass.id)}>DEL
+                                            onClick={ (e) => handleGlassDelete(e, glass.id)}>
+                                        Del
                                     </button>
                                     {glass.name} {glass.volume}.ml
                                 </li>

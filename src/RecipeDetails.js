@@ -1,8 +1,5 @@
 import React, {useState} from "react";
 import Select from "react-select";
-import AsyncSelect from 'react-select/async';
-import {Ingredient} from "./models/ingredient";
-
 
 const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
 
@@ -29,11 +26,6 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                 <form key={recipe.id} className={"form"} onSubmit={close}>
                     <input type="number" className={"new-recipe-ing"} placeholder='set Value'onChange={e => drinksQuantity(e.target.value)}/>
                     <h5 className={"recipe--details--text"}>What type of Glass You Have?</h5>
-                    {/*<select className={"button"}>*/}
-                    {/*    {glasses.map((glass,index) => (*/}
-                    {/*        <option>{glass.name} {glass.volume}.ml</option>*/}
-                    {/*    ))}*/}
-                    {/*</select>*/}
                     <Select
                         className={"selector"}
                         defaultValue={selectedOption}
