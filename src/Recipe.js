@@ -5,6 +5,7 @@ import {Ingredient} from "./models/ingredient";
 import {Recipe as RecipeModel} from "./models/Recipe"
 import {Glass} from "./models/glass";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
+import {AddGlassBar} from "./AddGlassBar";
 //uuid
 
 const API_URL = 'http://localhost:3000';
@@ -22,6 +23,8 @@ const Recipe = () => {
     const [glasses, setGlasses] = useState([]);
     const [glassName, setGlassName] = useState("")
     const [volume, setVolume] = useState("")
+    const [glassBar, setGlassBar] = useState(false);
+    console.log(glassBar);
 
     recipes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
 
@@ -142,6 +145,10 @@ const Recipe = () => {
         setGlassName("")
         setVolume("")
     }
+    function addGlassBar(e){
+        e.preventDefault()
+        setGlassBar(current => !current)
+    }
 
     function cancelButton() {
         setNewRecipeModalIsOpen(false);
@@ -173,14 +180,28 @@ const Recipe = () => {
                 </div>
                 <div className={"recipe"} onClick={openGlassModal}>
                     <h2>Add New Glass</h2>
+
                 </div>
-                <h2 className={"app--recipes"}>MY RECIPES</h2>
+                <h2 onClick={addGlassBar}>Add New Glass</h2>
+                <AddGlassBar glassBar={glassBar}/>
+
+                <div className={"scroll"}>
+                    <h2 className={"app--recipes"}>MY RECIPES</h2>
+                <div className={"scroll-recipes"}>
                 {recipes.map((recipe) => (
                     <div key={recipe.id} className={"recipe"} onClick={ () => openModal(recipe)}>
                         <h2>{recipe.name}</h2>
-                    </div>
+                        <ul>
+                        {ingredients.map((ingredient)=>(
+                            <li>{ingredient.name}</li>
+                        ))}
+                        </ul>
+                        </div>
                 ))}
+                </div>
+                </div>
                 <Modal
+                    className={"modal--open"}
                     isOpen={recipeModalIsOpen}
                     onRequestClose={closeModal}
                     ariaHideApp={false}

@@ -1,46 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poiret+One&display=swap');
+ $color-1: #fff3e8;
+ $color-2:#FFA364;
+ $color-3:#FC7643;
+ $color-4:#AF4F41;
+ $color-5: #595d7c;
+ $color-6: #abec8b;
+
 
 *{
-  font-family: "Helvetica Neue";
-  color: #3f3f3f;
+  font-family: "Poiret One";
 }
 body{
-  background: url("../icons/barBackground.jpeg") center/contain;
-  display: flex;
+  background: $color-1;
   justify-content: center;
 }
 .container{
-  display: flex;
-  //justify-content: space-around;
-  //flex-grow: 0;
   width: 100%;
-  flex-flow: wrap;
-  font-size: 20px;
-
-  div.recipe{
-    border: 5px solid cornflowerblue;
-    width: 100%;
-    text-align: center;
-    margin: 20px;
-    margin-bottom: 0;
-    font-size: 10px;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    //width: 80px;
-    height: 80px;
-    background: aliceblue;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px 7px #000000;
-  }
-  div.recipe:first-child{
-    background-color: #17ef17;
-    margin-bottom: 0;
-  }
-  div.recipe:nth-child(2){
-    background-color: #7ce77c;
-    margin-bottom: 20px;
-  }
   .form{
     width: 100%;
     display: flex;
@@ -52,12 +27,9 @@ body{
     }
     .new-recipe-title{
       text-align: center;
+      color: $color-2;
       font-size: 20px;
       font-weight: bold;
-      background-color: #988888;
-      padding: 10px 0;
-      border-radius: 5px;
-      border: 1px solid lightgreen;
     }
     .new-recipe-ing{
       width: 100%;
@@ -107,24 +79,17 @@ body{
 }
 .app--name{
   text-align: center;
-  color: white;
+  color: $color-5;
   margin: 20px;
   padding: 10px 0;
-  font-size: 7vw;
-  background-color: #524646;
-  border: 2px solid lightgrey;
   border-radius: 5px;
 }
 .app--recipes{
-  text-align: center;
-  color: white;
+  color: $color-4;
   width: 100%;
   margin: 20px;
   padding: 10px 0;
   font-size: 5vw;
-  background-color: #7c6969;
-  border: 2px solid lightgrey;
-  border-radius: 5px;
 }
 .my--recipes{
   width: 100%;
@@ -200,6 +165,8 @@ ul{
 .ReactModal__Overlay {
   opacity: 0;
   animation: openingModal .15s;
+  z-index: 4;
+  background-color: $color-1;
 }
 
 .ReactModal__Overlay--after-open{
@@ -254,4 +221,63 @@ ul{
   justify-content: space-between;
   height: auto;
   align-items: center;
+}
+
+.scroll{
+  width: 100%;
+  bottom: 40px;
+  position: absolute;
+
+  .scroll-recipes{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    .recipe{
+      display: inline-block;
+      padding: 20px;
+      font-size: 10px;
+      margin: 0 20px;
+      height: 200px;
+      width: 120px;
+      background-color: $color-5;
+      border-radius: 30px;
+      position: relative;
+      h2{
+        z-index: 2;
+        color: $color-5;
+        position: absolute;
+        top:0;
+
+      }
+    }
+    .recipe::before{
+      position: absolute;
+      content: "";
+      display: block;
+      width: 110px;
+      height: 40px;
+      background-color: $color-6;
+      border-radius: 29px 0 5px 0;
+      top:0;
+      left:0
+    }
+    .recipe::after{
+      z-index: 0;
+      position: absolute;
+      content: "";
+      display: block;
+      width: 50px;
+      height: 60px;
+      background-color: $color-6;
+      border-radius: 25px 0 10px 0;
+      transform: rotate(25deg);
+      top:-24.6px;
+      left:75px;
+    }
+  }
+}
+.modal--open{
+  background-color: black;
+  position: absolute;
+  inset: 40px;
 }

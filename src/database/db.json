@@ -67,6 +67,63 @@
         }
       ],
       "process": "pour everything to the glass, add lemon and ice"
+    },
+    {
+      "id": 7,
+      "name": "Turbo Cola",
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "quantity": "40"
+        },
+        {
+          "name": "Cola",
+          "quantity": "120"
+        },
+        {
+          "name": "lemmon",
+          "quantity": "10"
+        }
+      ],
+      "process": "pour everything to the glass"
+    },
+    {
+      "id": 8,
+      "name": "Martini Dry",
+      "ingredients": [
+        {
+          "name": "Gin",
+          "quantity": "70"
+        },
+        {
+          "name": "Vermout",
+          "quantity": "140"
+        },
+        {
+          "name": "Olives",
+          "quantity": "2"
+        }
+      ],
+      "process": ""
+    },
+    {
+      "id": 9,
+      "name": "mega cola",
+      "ingredients": [
+        {
+          "name": "cola",
+          "quantity": "210"
+        },
+        {
+          "name": "sprite",
+          "quantity": "100"
+        },
+        {
+          "name": "fanta",
+          "quantity": "70"
+        }
+      ],
+      "process": "mieszamy składniki i nalewamy "
     }
   ],
   "glasses": [
@@ -79,6 +136,11 @@
       "id": 2,
       "name": "Shot ",
       "volume": "40"
+    },
+    {
+      "id": 3,
+      "name": "Vine Glass",
+      "volume": "150"
     }
   ]
 }
