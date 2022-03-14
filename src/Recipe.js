@@ -7,6 +7,7 @@ import {Glass} from "./models/glass";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {AddGlassBar} from "./AddGlassBar";
+import {AddRecipe} from "./AddRecipe";
 //uuid
 
 const API_URL = 'http://localhost:3000';
@@ -25,6 +26,7 @@ const Recipe = () => {
     const [glassName, setGlassName] = useState("")
     const [volume, setVolume] = useState("")
     const [glassBar, setGlassBar] = useState(true);
+    const [recipeBar, setRecipeBar] = useState(true);
     console.log(glassBar);
 
     recipes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
@@ -145,10 +147,15 @@ const Recipe = () => {
         addNewGlass()
         setGlassName("")
         setVolume("")
+        setGlassBar(current => !current)
     }
     function addGlassBar(e){
         e.preventDefault()
         setGlassBar(current => !current)
+
+    }function addRecipeBar(e){
+        e.preventDefault()
+        setRecipeBar(current => !current)
     }
 
     function cancelButton() {
@@ -175,14 +182,26 @@ const Recipe = () => {
             <section className={"container"}>
                 <div className={'menu'}>
                     <h1 className={"app--name"}>DRINKS CALCULATOR</h1>
-                    <div className={"recipe"} onClick={openNewModal}>
-                        <h2 className={"add--section"}>Add New</h2>
-                    </div>
-                    <div className={"recipe"} onClick={openGlassModal}>
-                        <h2 className={"add--section"}>Add New Glass</h2>
+                    {/*<div className={"recipe"} onClick={openNewModal}>*/}
+                    {/*    <h2 className={"add--section"}>Add New</h2>*/}
+                    {/*</div>*/}
+                    {/*<div className={"recipe"} onClick={openGlassModal}>*/}
+                    {/*    <h2 className={"add--section"}>Add New Glass</h2>*/}
 
 
-                    </div>
+                    {/*</div>*/}
+                    <h2 className={"add--section"} onClick={addRecipeBar}>Add New</h2>
+                    <AddRecipe closeNewModal={closeNewModal}
+                               recipeBar={recipeBar}
+                               setName={setName}
+                               ingredients={ingredients}
+                               updateIngredientName={updateIngredientName}
+                               updateIngredientValue={updateIngredientValue}
+                               handleAddIng={handleAddIng}
+                               setProcess={setProcess}
+                               cancelButton={cancelButton}
+
+                    />
                     <h2 onClick={addGlassBar}>Add New Glass</h2>
                     <AddGlassBar glassBar={glassBar}
                                  setGlassName={setGlassName}
@@ -211,6 +230,23 @@ const Recipe = () => {
                 </div>
 
                 </div>
+                <div className={"scroll"}>
+                    <h2 className={"app--recipes"}>Mygit  Glasses</h2>
+                    <div className={"scroll-recipes"}>
+                        {glasses.map((glass) => (
+                            <div key={glass.id} className={"recipe"} onClick={ () => openModal(glass)}>
+                                <h2>{glass.name}</h2>
+                                <ul>
+                                    {ingredients.map((ingredient)=>(
+                                        <li>{ingredient.name}</li>
+                                    ))}
+                                </ul>
+
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
                 <Modal
                     className={"modal--open"}
                     isOpen={recipeModalIsOpen}
@@ -220,33 +256,33 @@ const Recipe = () => {
                 >
                     <RecipeDetails recipe={openedRecipe} glasses={glasses} open={recipeModalIsOpen} close={closeModal} deleteRecipe={deleteRecipe} cancel={cancelButton}/>
                 </Modal>
-                <Modal
-                    isOpen={glassModalIsOpen}
-                    onRequestClose={cancelButton}
-                    portalClassName={"modal"}
-                    ariaHideApp={false}
-                >
-                    <section className={"container"}>
-                        <form className={"form"}>
-                            <input className={"new-recipe-title"} placeholder={'Glass Name'} onChange={e => setGlassName(e.target.value)}/>
-                            <input className={"new-glass-title"} type={"number"} placeholder={'Volume in mililiters'} onChange={e => setVolume(e.target.value)}/>
-                            <button className={"button"} onClick={saveGlassModal}>Save</button>
-                            <button className={"cancel--btn"} onClick={cancelButton}>Close</button>
-                        </form>
-                        <h3 className={"my--glasses"}>MY GLASSES</h3>
-                        <ul className={"glassList"}>
-                            {glasses.map((glass,index) => (
-                                <li key={index} className={"glassListItem"}>
-                                    <button className={"delete--glass"}
-                                            onClick={ (e) => handleGlassDelete(e, glass.id)}>
-                                        Del
-                                    </button>
-                                    {glass.name} {glass.volume}.ml
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-                </Modal>
+                {/*<Modal*/}
+                {/*    isOpen={glassModalIsOpen}*/}
+                {/*    onRequestClose={cancelButton}*/}
+                {/*    portalClassName={"modal"}*/}
+                {/*    ariaHideApp={false}*/}
+                {/*>*/}
+                {/*    <section className={"container"}>*/}
+                {/*        <form className={"form"}>*/}
+                {/*            <input className={"new-recipe-title"} placeholder={'Glass Name'} onChange={e => setGlassName(e.target.value)}/>*/}
+                {/*            <input className={"new-glass-title"} type={"number"} placeholder={'Volume in mililiters'} onChange={e => setVolume(e.target.value)}/>*/}
+                {/*            <button className={"button"} onClick={saveGlassModal}>Save</button>*/}
+                {/*            <button className={"cancel--btn"} onClick={cancelButton}>Close</button>*/}
+                {/*        </form>*/}
+                {/*        <h3 className={"my--glasses"}>MY GLASSES</h3>*/}
+                {/*        <ul className={"glassList"}>*/}
+                {/*            {glasses.map((glass,index) => (*/}
+                {/*                <li key={index} className={"glassListItem"}>*/}
+                {/*                    <button className={"delete--glass"}*/}
+                {/*                            onClick={ (e) => handleGlassDelete(e, glass.id)}>*/}
+                {/*                        Del*/}
+                {/*                    </button>*/}
+                {/*                    {glass.name} {glass.volume}.ml*/}
+                {/*                </li>*/}
+                {/*            ))}*/}
+                {/*        </ul>*/}
+                {/*    </section>*/}
+                {/*</Modal>*/}
                 <Modal
                     s
                     isOpen={newRecipeModalIsOpen}
@@ -254,30 +290,7 @@ const Recipe = () => {
                     ariaHideApp={false}
                     portalClassName={"modal"}
                 >
-                    <section className={"container"}>
-                        <form className={"form"} onSubmit={closeNewModal}>
-                            <input className={"new-recipe-title"} placeholder={'Drink Name'} onChange={e => setName(e.target.value)}/>
-                            {ingredients.map((item,index)=>(
-                                <div key={index} className={'new-ing-div'}>
-                                    <input  className={"new-recipe-ing"}
-                                            placeholder={`ingredient ${index+1}`}
-                                            onChange={e => updateIngredientName(index,e.target.value)}
-                                            value={ingredients[index].name}
-                                    />
-                                    <input type={'number'} className={"new-recipe-ing"}
-                                           placeholder={"quantity"}
-                                           onChange={e => updateIngredientValue(index,e.target.value)}
-                                           value={ingredients[index].quantity}
-                                    />
-                                </div>
-                            ))}
-                            <button className={"ing--button"} onClick={handleAddIng}>Add ingredient</button>
-                            <textarea className={"new-recipe-textarea"} placeholder={"Type Process"} onChange={e => setProcess(e.target.value)}/>
-                            <button className={"button"} type={"submit"}>Save</button>
-                            <button className={"cancel--btn"} onClick={cancelButton}>Cancel</button>
 
-                        </form>
-                    </section>
                 </Modal>
             </section>
         </>

@@ -9,7 +9,7 @@ const AddGlassBar = ({glassBar, cancelButton, glasses, handleGlassDelete, saveGl
                         <input className={""} placeholder={'Glass Name'} onChange={e => setGlassName(e.target.value)}/>
                         <input className={""} type={"number"} placeholder={'Volume in mililiters'} onChange={e => setVolume(e.target.value)}/>
                         <button className={""} onClick={saveGlassModal}>Save</button>
-                        <button className={""} onClick={cancelButton}>Close</button>
+                        <button className={"cancel-btn"} onClick={cancelButton}>Close</button>
                     </form>
                     {/*<h3 className={"my--glasses"}>MY GLASSES</h3>*/}
                     {/*<ul className={"glassList"}>*/}
