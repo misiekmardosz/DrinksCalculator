@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gayathri:wght@100;400;700&display=swap');
  $color-1: #fff3e8;
  $color-2:#FFA364;
  $color-3:#FC7643;
- $color-4:#AF4F41;
- $color-5: #595d7c;
+ $color-4: #b65b4f;
+ $color-5: #52818c;
  $color-6: #abec8b;
 
 
 *{
-  font-family: "Poiret One";
+  font-family: 'Gayathri', sans-serif;
+  font-weight: 100;
 }
 body{
   background: $color-1;
@@ -16,6 +18,68 @@ body{
 }
 .container{
   width: 100%;
+  .scroll{
+    width: 100%;
+    bottom: 40px;
+    position: absolute;
+
+    .scroll-recipes{
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      .recipe{
+        display: inline-block;
+        padding: 20px;
+        font-size: 10px;
+        margin: 20px 10px;
+        height: 200px;
+        width: 120px;
+        box-shadow: 0px 0px 25px -10px rgba(66, 68, 90, 1);
+        background-color: #f3ecec;
+        border-radius: 30px;
+        position: relative;
+        h2{
+          z-index: 2;
+          color: $color-5;
+          width:120px;
+          text-align: center;
+          position: absolute;
+          top:0;
+          left: 0;
+
+        }
+      }
+      .recipe::before{
+        position: absolute;
+        content: "";
+        display: block;
+        width: 120px;
+        height: 40px;
+        background-color: $color-6;
+        border-radius: 29px 0 5px 0;
+        top:0;
+        left:0
+      }
+      //.recipe::after{
+      //  z-index: 0;
+      //  position: absolute;
+      //  content: "";
+      //  display: block;
+      //  width: 50px;
+      //  height: 60px;
+      //  background-color: $color-6;
+      //  border-radius: 25px 0 10px 0;
+      //  transform: rotate(25deg);
+      //  top:-24.6px;
+      //  left:75px;
+      //}
+    }
+  }
+  .modal--open{
+    background-color: black;
+    position: absolute;
+    inset: 40px;
+  }
   .form{
     width: 100%;
     display: flex;
@@ -25,6 +89,7 @@ body{
       width: 100%;
       justify-content: center;
     }
+
     .new-recipe-title{
       text-align: center;
       color: $color-2;
@@ -78,10 +143,12 @@ body{
   }
 }
 .app--name{
-  text-align: center;
+  text-align: left;
+  padding: 40px;
+  font-size: 20px;
+  font-weight: 600;
   color: $color-5;
   margin: 20px;
-  padding: 10px 0;
   border-radius: 5px;
 }
 .app--recipes{
@@ -90,6 +157,7 @@ body{
   margin: 20px;
   padding: 10px 0;
   font-size: 5vw;
+  border-bottom: 1px solid$color-5;
 }
 .my--recipes{
   width: 100%;
@@ -166,15 +234,11 @@ ul{
   opacity: 0;
   animation: openingModal .15s;
   z-index: 4;
-  background-color: $color-1;
 }
 
 .ReactModal__Overlay--after-open{
   opacity: 1;
-}
 
-.ReactModal__Overlay--before-close{
-  opacity: 0;
 }
 @keyframes openingModal {
   from {
@@ -184,6 +248,17 @@ ul{
     transform: scale(1);
   }
 }
+
+@keyframes openingGlass {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
+
+
 .delete--glass{
   color: white;
   font-weight: bold;
@@ -222,62 +297,74 @@ ul{
   height: auto;
   align-items: center;
 }
+//.add--section::before{
+//  content: "";
+//  position: absolute;
+//  margin: 100px 0;
+//  display: block;
+//  width: 100px;
+//  border-radius: 100px;
+//  height: 40px;
+//  left: -50px;
+//  //background-color: $color-3;
+//  border: 2px solid $color-3;
+//
+//}
+.logo{
+  color: white;
+}
+.add--button{
+  background: $color-1;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border: 0;
+}
+.menu{
+  margin-top: 10px;
+  //background: $color-4;
+  padding: 10px 0 ;
+  border-radius: 0 50px 50px 0;
+}
 
-.scroll{
-  width: 100%;
-  bottom: 40px;
-  position: absolute;
-
-  .scroll-recipes{
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    .recipe{
-      display: inline-block;
-      padding: 20px;
-      font-size: 10px;
-      margin: 0 20px;
-      height: 200px;
-      width: 120px;
-      background-color: $color-5;
-      border-radius: 30px;
-      position: relative;
-      h2{
-        z-index: 2;
-        color: $color-5;
-        position: absolute;
-        top:0;
-
-      }
+.add--glass{
+  display: flex;
+  background: $color-1;
+  //box-shadow: inset 0px -36px 21px -39px rgba(66, 68, 90, 1);
+  box-shadow: inset 0px -14px 6px -13px rgba(66, 68, 90, 1), inset 0px 14px 6px -13px rgba(66, 68, 90, 1);
+  animation: slidemenu .1s;
+  height: 40px;
+  padding: 10px 0;
+  overflow-x: hidden;
+  .glass--form{
+    display: flex;
+    align-items: center;
+    width:90px;
+    input{
+      height: 20px;
+      background: none;
+      border: none;
+      border-bottom: 1px solid $color-5;
     }
-    .recipe::before{
-      position: absolute;
-      content: "";
-      display: block;
-      width: 110px;
-      height: 40px;
-      background-color: $color-6;
-      border-radius: 29px 0 5px 0;
-      top:0;
-      left:0
-    }
-    .recipe::after{
-      z-index: 0;
-      position: absolute;
-      content: "";
-      display: block;
-      width: 50px;
-      height: 60px;
-      background-color: $color-6;
-      border-radius: 25px 0 10px 0;
-      transform: rotate(25deg);
-      top:-24.6px;
-      left:75px;
+    button{
+      height: 20px;
     }
   }
 }
-.modal--open{
-  background-color: black;
-  position: absolute;
-  inset: 40px;
+
+@keyframes slidemenu {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 40px;
+  }
+}
+@keyframes slidemenuClose {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 90px;
+  }
 }

@@ -5,6 +5,7 @@ import {Ingredient} from "./models/ingredient";
 import {Recipe as RecipeModel} from "./models/Recipe"
 import {Glass} from "./models/glass";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {AddGlassBar} from "./AddGlassBar";
 //uuid
 
@@ -23,7 +24,7 @@ const Recipe = () => {
     const [glasses, setGlasses] = useState([]);
     const [glassName, setGlassName] = useState("")
     const [volume, setVolume] = useState("")
-    const [glassBar, setGlassBar] = useState(false);
+    const [glassBar, setGlassBar] = useState(true);
     console.log(glassBar);
 
     recipes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
@@ -171,19 +172,27 @@ const Recipe = () => {
     if (loading) return <p>Trwa ładowanie...</p>;
     return (
         <>
-            <header>
-                <h1 className={"app--name"}>DRINKS CALCULATOR</h1>
-            </header>
             <section className={"container"}>
-                <div className={"recipe"} onClick={openNewModal}>
-                    <h2>Add New</h2>
-                </div>
-                <div className={"recipe"} onClick={openGlassModal}>
-                    <h2>Add New Glass</h2>
+                <div className={'menu'}>
+                    <h1 className={"app--name"}>DRINKS CALCULATOR</h1>
+                    <div className={"recipe"} onClick={openNewModal}>
+                        <h2 className={"add--section"}>Add New</h2>
+                    </div>
+                    <div className={"recipe"} onClick={openGlassModal}>
+                        <h2 className={"add--section"}>Add New Glass</h2>
 
+
+                    </div>
+                    <h2 onClick={addGlassBar}>Add New Glass</h2>
+                    <AddGlassBar glassBar={glassBar}
+                                 setGlassName={setGlassName}
+                                 setVolume={setVolume}
+                                 saveGlassModal={saveGlassModal}
+                                 cancelButton={cancelButton}
+                                 glasses={glasses}
+                                 handleGlassDelete={handleGlassDelete}
+                    />
                 </div>
-                <h2 onClick={addGlassBar}>Add New Glass</h2>
-                <AddGlassBar glassBar={glassBar}/>
 
                 <div className={"scroll"}>
                     <h2 className={"app--recipes"}>MY RECIPES</h2>
@@ -196,9 +205,11 @@ const Recipe = () => {
                             <li>{ingredient.name}</li>
                         ))}
                         </ul>
+
                         </div>
                 ))}
                 </div>
+
                 </div>
                 <Modal
                     className={"modal--open"}
