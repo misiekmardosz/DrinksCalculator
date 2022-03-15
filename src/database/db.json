@@ -124,13 +124,63 @@
         }
       ],
       "process": "mieszamy składniki i nalewamy "
+    },
+    {
+      "id": 10,
+      "name": "Sugar sirup",
+      "ingredients": [
+        {
+          "name": "water",
+          "quantity": "100"
+        },
+        {
+          "name": "sugar",
+          "quantity": "200"
+        }
+      ],
+      "process": ""
+    },
+    {
+      "id": 11,
+      "name": "Misiek",
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "quantity": "40"
+        },
+        {
+          "name": "",
+          "quantity": null
+        }
+      ],
+      "process": ""
+    },
+    {
+      "id": 12,
+      "name": "Misiek",
+      "ingredients": [
+        {
+          "name": "vodka",
+          "quantity": "40"
+        },
+        {
+          "name": "ginger",
+          "quantity": "20"
+        }
+      ],
+      "process": ""
+    },
+    {
+      "id": 13,
+      "name": "dfsdf",
+      "ingredients": [
+        {
+          "name": "sdfsdf",
+          "quantity": "3333"
+        }
+      ],
+      "process": ""
     }
   ],
-  "glasses": [
-    {
-      "id": 1,
-      "name": "Vine Glass",
-      "volume": "200"
-    }
-  ]
+  "glasses": []
 }

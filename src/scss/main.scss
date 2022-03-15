@@ -407,7 +407,7 @@ ul{
   display: flex;
   background: $color-1;
   box-shadow: inset 0px -14px 6px -13px rgba(66, 68, 90, 1), inset 0px 14px 6px -13px rgba(66, 68, 90, 1);
-  animation: slidemenu .15s;
+  animation: slideGlass .15s;
   height: 40px;
   padding: 10px 0;
   .glass--form{
@@ -436,7 +436,7 @@ ul{
   background: $color-1;
   //box-shadow: inset 0px -36px 21px -39px rgba(66, 68, 90, 1);
   box-shadow: inset 0px -14px 6px -13px rgba(66, 68, 90, 1), inset 0px 14px 6px -13px rgba(66, 68, 90, 1);
-  animation: slidemenu .15s, slidemenuClose .15;
+  animation: slideRecipe .15s;
   //height: 40px;
   padding: 10px 20px;
   overflow-x: hidden;
@@ -464,13 +464,17 @@ ul{
       display: flex;
       input{
         padding: 0;
-        margin: 10px 0;
+        margin: 10px 10px;
         font-size: 17px;
-        width: 50%;
+        width: 75%;
         height: 20px;
         background: none;
         border: none;
         border-bottom: 1px solid $color-5;
+      }
+      input:last-child{
+        text-align: center;
+        width: 25%;
       }
       input:focus{
         outline: none;
@@ -478,25 +482,27 @@ ul{
     }
 
     textarea{
+      border: 1px solid $color-5;
+      background: none;
       width: 100%;
     }
   }
 }
 
-@keyframes slidemenu {
+@keyframes slideGlass {
   0% {
     height: 0;
   }
   100% {
-    height: 100px;
+    height: 40px;
   }
 }
-@keyframes slidemenuClose {
+@keyframes slideRecipe {
   0% {
-    height: 90px;
+    height: 0;
   }
   100% {
-    height: 0;
+    height: 200px;
   }
 }
 

@@ -126,9 +126,11 @@ const Recipe = () => {
         e.preventDefault()
         if (name === "") return setNewRecipeModalIsOpen(true)
         addNewRecipe();
-        setNewRecipeModalIsOpen(false);
+        // setNewRecipeModalIsOpen(false);
         setIngredients([new Ingredient("",null)])
+        setRecipeBar(current => !current)
         setName("")
+        setVolume("")
     }
 
     function openModal(recipe) {
