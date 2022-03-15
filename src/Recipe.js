@@ -212,36 +212,32 @@ const Recipe = () => {
                                  handleGlassDelete={handleGlassDelete}
                     />
                 </div>
-
                 <div className={"scroll"}>
-                    <h2 className={"app--recipes"}>MY RECIPES</h2>
+                    <h2 className={"app--recipes"}>My Recipes</h2>
                 <div className={"scroll-recipes"}>
                 {recipes.map((recipe) => (
                     <div key={recipe.id} className={"recipe"} onClick={ () => openModal(recipe)}>
                         <h2>{recipe.name}</h2>
                         <ul>
-                        {ingredients.map((ingredient)=>(
-                            <li>{ingredient.name}</li>
+                        {recipe.ingredients.map((ingredient)=>(
+                            <li key={recipe.id}>{ingredient.name}</li>
                         ))}
                         </ul>
-
-                        </div>
+                        <article className={"process"}>
+                            <p>{recipe.process}</p>
+                        </article>
+                    </div>
                 ))}
                 </div>
-
                 </div>
                 <div className={"scroll"}>
-                    <h2 className={"app--recipes"}>Mygit  Glasses</h2>
+                    <h2 className={"app--recipes"}>My Glasses</h2>
                     <div className={"scroll-recipes"}>
                         {glasses.map((glass) => (
-                            <div key={glass.id} className={"recipe"} onClick={ () => openModal(glass)}>
+                            <div key={glass.id} className={"glass"}>
                                 <h2>{glass.name}</h2>
-                                <ul>
-                                    {ingredients.map((ingredient)=>(
-                                        <li>{ingredient.name}</li>
-                                    ))}
-                                </ul>
-
+                                <h3>{glass.volume}.ml</h3>
+                                <button onClick={ (e) => handleGlassDelete(e, glass.id)}></button>
                             </div>
                         ))}
                     </div>

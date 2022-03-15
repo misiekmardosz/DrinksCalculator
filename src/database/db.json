@@ -128,34 +128,9 @@
   ],
   "glasses": [
     {
-      "id": 1,
-      "name": "Whiskey Glass",
-      "volume": "180"
-    },
-    {
-      "id": 2,
-      "name": "Shot ",
-      "volume": "40"
-    },
-    {
       "id": 3,
       "name": "Vine Glass",
       "volume": "150"
-    },
-    {
-      "id": 4,
-      "name": "ELo ",
-      "volume": "100"
-    },
-    {
-      "id": 5,
-      "name": "Martini Glass",
-      "volume": "250"
-    },
-    {
-      "id": 6,
-      "name": "Martini Glass",
-      "volume": "300"
     }
   ]
 }

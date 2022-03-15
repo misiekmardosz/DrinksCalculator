@@ -10,11 +10,11 @@ const AddRecipe =({closeNewModal, recipeBar,
     if (recipeBar === false)
     return(
         <>
-        <section className={"add--glass"}>
-            <form className={"glass--form"} onSubmit={closeNewModal}>
-                <input className={""} placeholder={'Drink Name'} onChange={e => setName(e.target.value)}/>
+        <section className={"add--recipe"}>
+            <form className={"recipe--form"} onSubmit={closeNewModal}>
+                <input className={"add--recipe--name"} placeholder={'Drink Name'} onChange={e => setName(e.target.value)}/>
                 {ingredients.map((item,index)=>(
-                    <div key={index} className={''}>
+                    <div key={index} className={'add--ing'}>
                         <input  className={""}
                                 placeholder={`ingredient ${index+1}`}
                                 onChange={e => updateIngredientName(index,e.target.value)}
@@ -27,8 +27,8 @@ const AddRecipe =({closeNewModal, recipeBar,
                         />
                     </div>
                 ))}
-                <button className={""} onClick={handleAddIng}>Add ingredient</button>
-                <textarea className={""} placeholder={"Type Process"} onChange={e => setProcess(e.target.value)}/>
+                <button className={""} onClick={handleAddIng}>add</button>
+                <textarea className={"add--process"} placeholder={"Type Process"} onChange={e => setProcess(e.target.value)}/>
                 <button className={""} type={""}>Save</button>
                 <button className={""} onClick={cancelButton}>Cancel</button>
 
