@@ -1,4 +1,6 @@
 import React from "react";
+import {faSave, faAdd, faCancel} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 const AddRecipe =({closeNewModal, recipeBar,
@@ -29,8 +31,8 @@ const AddRecipe =({closeNewModal, recipeBar,
                 ))}
                 <button className={"add--btn"} onClick={handleAddIng}>add</button>
                 <textarea className={"add--process"} placeholder={"Type Process"} onChange={e => setProcess(e.target.value)}/>
-                <button className={"save--btn"} type={"submit"}>Save</button>
-                <button className={""} onClick={cancelButton}>Cancel</button>
+                <button className={"button"} type={"submit"}><FontAwesomeIcon icon={faSave}/></button>
+                <button className={"button"} onClick={cancelButton}><FontAwesomeIcon icon={faCancel}/></button>
 
             </form>
         </section>

@@ -160,7 +160,12 @@
     {
       "id": 1,
       "name": "Vine Glass",
-      "volume": "400"
+      "volume": "200"
+    },
+    {
+      "id": 2,
+      "name": "Ikea Glass",
+      "volume": "350"
     }
   ]
 }

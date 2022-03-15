@@ -6,6 +6,8 @@ import {Recipe as RecipeModel} from "./models/Recipe"
 import {Glass} from "./models/glass";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTrash, faAdd, faCancel} from "@fortawesome/free-solid-svg-icons";
+
 import {AddGlassBar} from "./AddGlassBar";
 import {AddRecipe} from "./AddRecipe";
 //uuid
@@ -225,9 +227,6 @@ const Recipe = () => {
                             <li key={recipe.id}>{ingredient.name}</li>
                         ))}
                         </ul>
-                        <ul className={"process"}>
-                            <li>{recipe.process}</li>
-                        </ul>
                     </div>
                 ))}
                 </div>
@@ -239,7 +238,8 @@ const Recipe = () => {
                             <div key={glass.id} className={"glass"}>
                                 <h2>{glass.name}</h2>
                                 <h3>{glass.volume}.ml</h3>
-                                <button onClick={ (e) => handleGlassDelete(e, glass.id)}></button>
+                                <button onClick={ (e) => handleGlassDelete(e, glass.id)}><FontAwesomeIcon icon={faTrash}/></button>
+
                             </div>
                         ))}
                     </div>
