@@ -27,9 +27,9 @@ const AddRecipe =({closeNewModal, recipeBar,
                         />
                     </div>
                 ))}
-                <button className={""} onClick={handleAddIng}>add</button>
+                <button className={"add--btn"} onClick={handleAddIng}>add</button>
                 <textarea className={"add--process"} placeholder={"Type Process"} onChange={e => setProcess(e.target.value)}/>
-                <button className={""} type={""}>Save</button>
+                <button className={"save--btn"} type={"submit"}>Save</button>
                 <button className={""} onClick={cancelButton}>Cancel</button>
 
             </form>
