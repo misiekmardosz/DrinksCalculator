@@ -141,21 +141,6 @@
       "process": ""
     },
     {
-      "id": 11,
-      "name": "Misiek",
-      "ingredients": [
-        {
-          "name": "Vodka",
-          "quantity": "40"
-        },
-        {
-          "name": "",
-          "quantity": null
-        }
-      ],
-      "process": ""
-    },
-    {
       "id": 12,
       "name": "Misiek",
       "ingredients": [
@@ -169,18 +154,13 @@
         }
       ],
       "process": ""
-    },
-    {
-      "id": 13,
-      "name": "dfsdf",
-      "ingredients": [
-        {
-          "name": "sdfsdf",
-          "quantity": "3333"
-        }
-      ],
-      "process": ""
     }
   ],
-  "glasses": []
+  "glasses": [
+    {
+      "id": 1,
+      "name": "Vine Glass",
+      "volume": "400"
+    }
+  ]
 }

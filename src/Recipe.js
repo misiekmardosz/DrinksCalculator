@@ -225,9 +225,9 @@ const Recipe = () => {
                             <li key={recipe.id}>{ingredient.name}</li>
                         ))}
                         </ul>
-                        <article className={"process"}>
-                            <p>{recipe.process}</p>
-                        </article>
+                        <ul className={"process"}>
+                            <li>{recipe.process}</li>
+                        </ul>
                     </div>
                 ))}
                 </div>
