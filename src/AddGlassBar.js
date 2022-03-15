@@ -11,7 +11,6 @@ const AddGlassBar = ({glassBar, cancelButton, saveGlassModal, setGlassName, setV
                         <input className={""} placeholder={'Glass Name'} onChange={e => setGlassName(e.target.value)}/>
                         <input className={""} type={"number"} placeholder={'Volume'} onChange={e => setVolume(e.target.value)}/>
                         <button className={"button"} onClick={saveGlassModal}><FontAwesomeIcon icon={faSave}/></button>
-                        <button className={"button"} onClick={cancelButton}><FontAwesomeIcon icon={faCancel}/></button>
                     </form>
                 </section>
             </>

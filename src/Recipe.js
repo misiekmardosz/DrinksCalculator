@@ -6,7 +6,7 @@ import {Recipe as RecipeModel} from "./models/Recipe"
 import {Glass} from "./models/glass";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTrash, faAdd, faCancel} from "@fortawesome/free-solid-svg-icons";
+import {faTrash, faAdd, faCancel, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
 import {AddGlassBar} from "./AddGlassBar";
 import {AddRecipe} from "./AddRecipe";
@@ -124,6 +124,7 @@ const Recipe = () => {
         setNewRecipeModalIsOpen(true);
     }
 
+
     function closeNewModal(e) {
         e.preventDefault()
         if (name === "") return setNewRecipeModalIsOpen(true)
@@ -194,7 +195,7 @@ const Recipe = () => {
 
 
                     {/*</div>*/}
-                    <h2 className={"add--section"} onClick={addRecipeBar}>Add New</h2>
+                    <h2 className={"add--section"} onClick={addRecipeBar}>Add Recipe <FontAwesomeIcon className={"chevron"} icon={faChevronDown}/></h2>
                     <AddRecipe closeNewModal={closeNewModal}
                                recipeBar={recipeBar}
                                setName={setName}
@@ -206,7 +207,7 @@ const Recipe = () => {
                                cancelButton={cancelButton}
 
                     />
-                    <h2 onClick={addGlassBar}>Add New Glass</h2>
+                    <h2 onClick={addGlassBar}>Add New Glass <FontAwesomeIcon icon={faChevronDown}/></h2>
                     <AddGlassBar glassBar={glassBar}
                                  setGlassName={setGlassName}
                                  setVolume={setVolume}

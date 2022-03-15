@@ -1,6 +1,7 @@
 import React from "react";
 import {faSave, faAdd, faCancel} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Ingredient} from "./models/ingredient";
 
 
 const AddRecipe =({closeNewModal, recipeBar,
@@ -9,7 +10,7 @@ const AddRecipe =({closeNewModal, recipeBar,
                       updateIngredientName,
                       updateIngredientValue,
                       handleAddIng,setProcess})=>{
-    if (recipeBar === false)
+    if (recipeBar === true)
     return(
         <>
         <section className={"add--recipe"}>
@@ -29,16 +30,15 @@ const AddRecipe =({closeNewModal, recipeBar,
                         />
                     </div>
                 ))}
-                <button className={"add--btn"} onClick={handleAddIng}>add</button>
+                <button className={"button"} onClick={handleAddIng}><FontAwesomeIcon icon={faAdd}/></button>
                 <textarea className={"add--process"} placeholder={"Type Process"} onChange={e => setProcess(e.target.value)}/>
                 <button className={"button"} type={"submit"}><FontAwesomeIcon icon={faSave}/></button>
-                <button className={"button"} onClick={cancelButton}><FontAwesomeIcon icon={faCancel}/></button>
 
             </form>
         </section>
         </>
     )
-    else return <></>
+    else<></>
 };
 
 export {AddRecipe};
