@@ -10,7 +10,7 @@ const AddRecipe =({closeNewModal, recipeBar,
                       updateIngredientName,
                       updateIngredientValue,
                       handleAddIng,setProcess})=>{
-    if (recipeBar === true)
+    if (recipeBar === false)
     return(
         <>
         <section className={"add--recipe"}>
@@ -38,7 +38,7 @@ const AddRecipe =({closeNewModal, recipeBar,
         </section>
         </>
     )
-    else<></>
+    else return <></>
 };
 
 export {AddRecipe};

@@ -187,14 +187,6 @@ const Recipe = () => {
             <section className={"container"}>
                 <div className={'menu'}>
                     <h1 className={"app--name"}>DRINKS CALCULATOR</h1>
-                    {/*<div className={"recipe"} onClick={openNewModal}>*/}
-                    {/*    <h2 className={"add--section"}>Add New</h2>*/}
-                    {/*</div>*/}
-                    {/*<div className={"recipe"} onClick={openGlassModal}>*/}
-                    {/*    <h2 className={"add--section"}>Add New Glass</h2>*/}
-
-
-                    {/*</div>*/}
                     <h2 className={"add--section"} onClick={addRecipeBar}>Add Recipe <FontAwesomeIcon className={"chevron"} icon={faChevronDown}/></h2>
                     <AddRecipe closeNewModal={closeNewModal}
                                recipeBar={recipeBar}
@@ -247,41 +239,34 @@ const Recipe = () => {
 
                 </div>
                 <Modal
-                    className={"modal--open"}
+                    // className={"modal--open"}
                     isOpen={recipeModalIsOpen}
                     onRequestClose={closeModal}
                     ariaHideApp={false}
                     portalClassName={"modal"}
+                    style={{
+                        overlay: {
+                            position: 'fixed',
+                            backgroundColor: 'none',
+                        },
+                        content: {
+                            position: 'absolute',
+                            top: '80px',
+                            left: '40px',
+                            right: '40px',
+                            bottom: '80px',
+                            border: '1px solid #ccc',
+                            background: '#fff',
+                            overflow: 'auto',
+                            WebkitOverflowScrolling: 'touch',
+                            borderRadius: '30px',
+                            outline: 'none',
+                            padding: '20px'
+                        }
+                    }}
                 >
                     <RecipeDetails recipe={openedRecipe} glasses={glasses} open={recipeModalIsOpen} close={closeModal} deleteRecipe={deleteRecipe} cancel={cancelButton}/>
                 </Modal>
-                {/*<Modal*/}
-                {/*    isOpen={glassModalIsOpen}*/}
-                {/*    onRequestClose={cancelButton}*/}
-                {/*    portalClassName={"modal"}*/}
-                {/*    ariaHideApp={false}*/}
-                {/*>*/}
-                {/*    <section className={"container"}>*/}
-                {/*        <form className={"form"}>*/}
-                {/*            <input className={"new-recipe-title"} placeholder={'Glass Name'} onChange={e => setGlassName(e.target.value)}/>*/}
-                {/*            <input className={"new-glass-title"} type={"number"} placeholder={'Volume in mililiters'} onChange={e => setVolume(e.target.value)}/>*/}
-                {/*            <button className={"button"} onClick={saveGlassModal}>Save</button>*/}
-                {/*            <button className={"cancel--btn"} onClick={cancelButton}>Close</button>*/}
-                {/*        </form>*/}
-                {/*        <h3 className={"my--glasses"}>MY GLASSES</h3>*/}
-                {/*        <ul className={"glassList"}>*/}
-                {/*            {glasses.map((glass,index) => (*/}
-                {/*                <li key={index} className={"glassListItem"}>*/}
-                {/*                    <button className={"delete--glass"}*/}
-                {/*                            onClick={ (e) => handleGlassDelete(e, glass.id)}>*/}
-                {/*                        Del*/}
-                {/*                    </button>*/}
-                {/*                    {glass.name} {glass.volume}.ml*/}
-                {/*                </li>*/}
-                {/*            ))}*/}
-                {/*        </ul>*/}
-                {/*    </section>*/}
-                {/*</Modal>*/}
                 <Modal
                     s
                     isOpen={newRecipeModalIsOpen}
