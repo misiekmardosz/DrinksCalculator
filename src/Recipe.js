@@ -29,6 +29,11 @@ const Recipe = () => {
     const [volume, setVolume] = useState("")
     const [glassBar, setGlassBar] = useState(true);
     const [recipeBar, setRecipeBar] = useState(true);
+    useEffect(()=>{
+        if(recipeBar === true) {
+            setIngredients([new Ingredient("",null)])
+        }
+    },[])
     console.log(recipes);
 
     recipes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))

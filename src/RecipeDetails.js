@@ -22,34 +22,31 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
     return(
         <>
             <div className={"container"}>
-                <h2 className={"recipe--title"}>{recipe.name}</h2>
+                <h2 key={recipe.id} className={"recipe--title"}>{recipe.name}</h2>
                 <form key={recipe.id} className={"form"} onSubmit={close}>
-                    <div className={'recipe--selectors'}>
-                        <div>
-                            <h5 className={"recipe--details--text"}>What type of Glass You Have?</h5>
-                            <Select
-                                className={"selector"}
-                                defaultValue={selectedOption}
-                                onChange={setSelectedOption}
-                                options={glassesSelector}
-                            />
-                        </div>
-                        <div>
-                            <h5 className={"recipe--details--text"}>how many drinks?g</h5>
-                            <input type="number" className={"new-recipe-ing"} placeholder='set Value'onChange={e => drinksQuantity(e.target.value)}/>
-                        </div>
+                    <Select
+                        className={"selector"}
+                        defaultValue={selectedOption}
+                        onChange={setSelectedOption}
+                        options={glassesSelector}
+                    />
+                    <div className={"recipe--selectors"}>
+                        <h5 className={"recipe--details--text"}>how many drinks?</h5>
+                        <input type="number" max="99" className={"new-recipe-ing"} placeholder='0'onChange={e => drinksQuantity(e.target.value)}/>
                     </div>
+
+
                     <div className={"recipe--details--table"}>
                         <div className={"list"}>
                             <h4 className={"recipe--details--text"}>Recipe for One Drink</h4>
                             <ul className={"process"}>
                                 {recipe.ingredients.map((ingredient,index) => (
-                                    <li>{ingredient.name}</li>
+                                    <li key={recipe.id}>{ingredient.name}</li>
                                 ))}
                             </ul>
                             <ul>
                                 {recipe.ingredients.map((ingredient,index) => (
-                                    <li>{Math.round(ingredient.quantity*selectedOption.value/sum)}.ml</li>
+                                    <li key={recipe.id}>{Math.round(ingredient.quantity*selectedOption.value/sum)}.ml</li>
                                 ))}
                             </ul>
                         </div>

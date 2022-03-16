@@ -375,15 +375,23 @@ h2{
     font-weight: bold;
     color: $color-5;
   }
-  input{
-    padding: 0;
-    margin: 10px 20px;
+  h5{
+    margin: 0;
     font-size: 20px;
-    width: 75%;
+
+    color: $color-1;
+  }
+  input{
+    text-align: right;
+    padding: 0;
+    font-size: 20px;
+    width:20%;
     height: 30px;
     background: none;
     border: none;
-    border-bottom: 1px solid $color-1;
+  }
+  input:focus{
+    outline: none;
   }
   .selector{
     background: none;
@@ -423,5 +431,10 @@ h2{
 }
 
 .recipe--selectors{
+  margin: 15px 0;
+  padding:  20px;
+  align-items: center;
   display: flex;
+  justify-content: center;
+  border-bottom: 1px solid $color-1;
 }

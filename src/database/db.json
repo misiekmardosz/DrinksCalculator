@@ -20,21 +20,6 @@
       "process": "Pour everything to the glass add ice "
     },
     {
-      "id": 5,
-      "name": "Lemmy",
-      "ingredients": [
-        {
-          "name": "Vodka",
-          "quantity": "60"
-        },
-        {
-          "name": "Cola",
-          "quantity": "300"
-        }
-      ],
-      "process": "pour ingredients to the glass and add ice and bitters"
-    },
-    {
       "id": 7,
       "name": "Turbo Cola",
       "ingredients": [
