@@ -1,25 +1,6 @@
 {
   "recipes": [
     {
-      "id": 3,
-      "name": "Whiskey Sour",
-      "ingredients": [
-        {
-          "name": "Whiskey ",
-          "quantity": "40"
-        },
-        {
-          "name": "lemon juice",
-          "quantity": "20"
-        },
-        {
-          "name": "sugar sirup",
-          "quantity": "10"
-        }
-      ],
-      "process": "Pour all ingredients into shaker filed with ice, shake it well and pour everything to the glass"
-    },
-    {
       "id": 4,
       "name": "Moscow Mule",
       "ingredients": [
@@ -52,21 +33,6 @@
         }
       ],
       "process": "pour ingredients to the glass and add ice and bitters"
-    },
-    {
-      "id": 6,
-      "name": "Gin&Tonic",
-      "ingredients": [
-        {
-          "name": "Gin",
-          "quantity": "40"
-        },
-        {
-          "name": "Tonic",
-          "quantity": "100"
-        }
-      ],
-      "process": "pour everything to the glass, add lemon and ice"
     },
     {
       "id": 7,

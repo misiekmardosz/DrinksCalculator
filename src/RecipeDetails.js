@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import Select from "react-select";
+import {faTrash} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
 
@@ -21,20 +23,23 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
         <>
             <div className={"container"}>
                 <h2 className={"recipe--title"}>{recipe.name}</h2>
-                <h5 className={"recipe--details--text"}>How Many Drinks You want to do?</h5>
-
                 <form key={recipe.id} className={"form"} onSubmit={close}>
-                    <input type="number" className={"new-recipe-ing"} placeholder='set Value'onChange={e => drinksQuantity(e.target.value)}/>
-                    <h5 className={"recipe--details--text"}>What type of Glass You Have?</h5>
-                    <Select
-                        className={"selector"}
-                        defaultValue={selectedOption}
-                        onChange={setSelectedOption}
-                        options={glassesSelector}
-                    />
-
+                    <div className={'recipe--selectors'}>
+                        <div>
+                            <h5 className={"recipe--details--text"}>What type of Glass You Have?</h5>
+                            <Select
+                                className={"selector"}
+                                defaultValue={selectedOption}
+                                onChange={setSelectedOption}
+                                options={glassesSelector}
+                            />
+                        </div>
+                        <div>
+                            <h5 className={"recipe--details--text"}>how many drinks?g</h5>
+                            <input type="number" className={"new-recipe-ing"} placeholder='set Value'onChange={e => drinksQuantity(e.target.value)}/>
+                        </div>
+                    </div>
                     <div className={"recipe--details--table"}>
-
                         <div className={"list"}>
                             <h4 className={"recipe--details--text"}>Recipe for One Drink</h4>
                             <ul className={"process"}>
@@ -48,7 +53,6 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                                 ))}
                             </ul>
                         </div>
-
                         <div className={"list"}>
                             <h4 className={"recipe--details--text"}>You Need</h4>
                             <ul className={"process"}>
@@ -69,8 +73,7 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                     <div className={"list--process"}>
                         <p>{recipe.process}</p>
                     </div>
-                    <button className={"button"} onClick={cancel}>Close</button>
-                    <button className={"cancel--btn"} key={recipe.id} onClick={handleDelete}>Delete Recipe</button>
+                    <button className={"cancel--btn"} key={recipe.id} onClick={handleDelete}><FontAwesomeIcon icon={faTrash}/></button>
                 </form>
 
 

@@ -29,9 +29,11 @@ const Recipe = () => {
     const [volume, setVolume] = useState("")
     const [glassBar, setGlassBar] = useState(true);
     const [recipeBar, setRecipeBar] = useState(true);
-    console.log(glassBar);
+    console.log(recipes);
 
     recipes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+    const filteredRecipes = recipes.filter(recipe => recipe.ingredients.name ==="")
+    console.log(filteredRecipes);
 
     // RECIPE SOURCE//
 
@@ -239,7 +241,7 @@ const Recipe = () => {
 
                 </div>
                 <Modal
-                    // className={"modal--open"}
+                    className={"modal--open"}
                     isOpen={recipeModalIsOpen}
                     onRequestClose={closeModal}
                     ariaHideApp={false}
@@ -249,20 +251,6 @@ const Recipe = () => {
                             position: 'fixed',
                             backgroundColor: 'none',
                         },
-                        content: {
-                            position: 'absolute',
-                            top: '80px',
-                            left: '40px',
-                            right: '40px',
-                            bottom: '80px',
-                            border: '1px solid #ccc',
-                            background: '#fff',
-                            overflow: 'auto',
-                            WebkitOverflowScrolling: 'touch',
-                            borderRadius: '30px',
-                            outline: 'none',
-                            padding: '20px'
-                        }
                     }}
                 >
                     <RecipeDetails recipe={openedRecipe} glasses={glasses} open={recipeModalIsOpen} close={closeModal} deleteRecipe={deleteRecipe} cancel={cancelButton}/>
