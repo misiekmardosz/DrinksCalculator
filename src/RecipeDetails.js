@@ -35,10 +35,12 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                         <input type="number" max="99" className={"new-recipe-ing"} placeholder='0'onChange={e => drinksQuantity(e.target.value)}/>
                     </div>
 
-
+                    <h5 className={"recipe--details--text"}>Recipe</h5>
                     <div className={"recipe--details--table"}>
+                        <h4 className={"recipe--details--text"}>For One</h4>
+                        <h4 className={"recipe--details--text"}>For All</h4>
                         <div className={"list"}>
-                            <h4 className={"recipe--details--text"}>Recipe for One Drink</h4>
+
                             <ul className={"process"}>
                                 {recipe.ingredients.map((ingredient,index) => (
                                     <li key={recipe.id}>{ingredient.name}</li>
@@ -51,7 +53,7 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                             </ul>
                         </div>
                         <div className={"list"}>
-                            <h4 className={"recipe--details--text"}>You Need</h4>
+
                             <ul className={"process"}>
                                 {recipe.ingredients.map((ingredient,index) => (
                                     <li>{ingredient.name}</li>

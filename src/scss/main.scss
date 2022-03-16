@@ -344,16 +344,6 @@ h2{
   height: 40px;
   border: none;
 }
-
-.recipe--details--table{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  ul{
-    width: 100%;
-    display: flex;
-  }
-}
 .modal--open{
   position: absolute;
   box-shadow: 0 0 25px -10px rgba(66, 68, 90, 1);
@@ -378,6 +368,7 @@ h2{
   h5{
     margin: 0;
     font-size: 20px;
+    text-align: center;
 
     color: $color-1;
   }
@@ -433,8 +424,13 @@ h2{
 .recipe--selectors{
   margin: 15px 0;
   padding:  20px;
+  padding-bottom: 10px;
   align-items: center;
   display: flex;
   justify-content: center;
   border-bottom: 1px solid $color-1;
+}
+.list{
+  display: flex;
+
 }
