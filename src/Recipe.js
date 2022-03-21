@@ -37,8 +37,8 @@ const Recipe = () => {
     console.log(recipes);
 
     recipes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
-    const filteredRecipes = recipes.filter(recipe => recipe.ingredients.name ==="")
-    console.log(filteredRecipes);
+    // const filteredRecipes = recipes.filter(recipe => recipe.ingredients.name ==="")
+    // console.log(filteredRecipes);
 
     // RECIPE SOURCE//
 
@@ -275,5 +275,3 @@ const Recipe = () => {
 }
 
 export { Recipe };
-
-// check on click for recipe to prevent refreshiing
