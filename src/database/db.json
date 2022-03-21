@@ -1,25 +1,6 @@
 {
   "recipes": [
     {
-      "id": 7,
-      "name": "Turbo Cola",
-      "ingredients": [
-        {
-          "name": "Vodka",
-          "quantity": "40"
-        },
-        {
-          "name": "Cola",
-          "quantity": "120"
-        },
-        {
-          "name": "lemmon",
-          "quantity": "10"
-        }
-      ],
-      "process": "pour everything to the glass"
-    },
-    {
       "id": 8,
       "name": "Martini Dry",
       "ingredients": [
@@ -103,6 +84,11 @@
       "id": 3,
       "name": "Shot",
       "volume": "40"
+    },
+    {
+      "id": 4,
+      "name": "Short",
+      "volume": "200"
     }
   ]
 }

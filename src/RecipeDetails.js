@@ -19,16 +19,27 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
         const drinksQuantity = [newQuantity];
         setNewQ(drinksQuantity);
     }
+    const colourStyles = {
+        control: styles => ({ ...styles, background: 'none', color: "white" }),
+        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+            return {
+                ...styles,
+                backgroundColor: isDisabled ? 'red' : "#269dbe",
+                color: '#FFF',
+                cursor: isDisabled ? 'not-allowed' : 'default',
+            };
+        },
+    };
     return(
         <>
             <div className={"container"}>
                 <h2 key={recipe.id} className={"recipe--title"}>{recipe.name}</h2>
                 <form key={recipe.id} className={"form"} onSubmit={close}>
                     <Select
-                        className={"selector"}
                         defaultValue={selectedOption}
                         onChange={setSelectedOption}
                         options={glassesSelector}
+                        styles={colourStyles}
                     />
                     <div className={"recipe--selectors"}>
                         <h5 className={"recipe--details--text"}>how many drinks?</h5>
@@ -76,12 +87,11 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                     <div className={"list--process"}>
                         <p>{recipe.process}</p>
                     </div>
-                    <button className={"cancel--btn"} key={recipe.id} onClick={handleDelete}><FontAwesomeIcon icon={faTrash}/></button>
                 </form>
-
-
             </div>
-
+            <div className={"div--button"}>
+                <button className={"cancel--btn"} key={recipe.id} onClick={handleDelete}><FontAwesomeIcon icon={faTrash}/></button>
+            </div>
         </>
     )
 }

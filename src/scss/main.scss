@@ -347,11 +347,11 @@ h2{
 .modal--open{
   position: absolute;
   box-shadow: 0 0 25px -10px rgba(66, 68, 90, 1);
-  top: 80px;
+  top: 140px;
   color: $color-1;
   left: 40px;
   right: 40px;
-  bottom: 80px;
+  bottom: 140px;
   border: 1px solid #ccc;
   background: $color-8;
   overflow: auto;
@@ -385,28 +385,10 @@ h2{
   input:focus{
     outline: none;
   }
-  .selector{
-    background: none;
-  }
+
   ul{
     margin: 0;
     padding: 0;
-  }
-  button{
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $color-5;
-    border: none;
-    border-radius: 50px;
-    height: 60px;
-    width: 60px;
-    font-size: 40px;
-    text-align: center;
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
   }
 }
 .modal--open::before{
@@ -434,9 +416,9 @@ h2{
 .list{
   width: 100%;
   color: $color-1;
-  padding: 20px;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  padding: 10px;
+  border-left: 1px solid $color-1;
+
   .list--item{
     display: flex;
     width: 100%;
@@ -445,8 +427,12 @@ h2{
   ul{
     list-style-type: none;
   }
+  ul:last-child{
+    text-align: right;
+  }
   h4{
     display: inline-block;
+    margin: 0 0 20px 0;
     text-align: center;
     width: 100%;
   }
@@ -463,3 +449,33 @@ h2{
 .list--process{
 
 }
+.list:last-child{
+  border-right: 1px solid $color-1;
+}
+
+.react-select{
+  background: black;
+}
+h5{
+  padding: 10px;
+}
+.div--button{
+  display: flex;
+  justify-content: right;
+  button{
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-5;
+    border: none;
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    font-size: 40px;
+    text-align: right;
+    bottom: 30px;
+    right: 30px;
+  }
+}
+
