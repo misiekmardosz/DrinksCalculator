@@ -1,25 +1,6 @@
 {
   "recipes": [
     {
-      "id": 4,
-      "name": "Moscow Mule",
-      "ingredients": [
-        {
-          "name": "Vodka",
-          "quantity": "40"
-        },
-        {
-          "name": "Ginger Beer",
-          "quantity": "100"
-        },
-        {
-          "name": "Lime Juice",
-          "quantity": "10"
-        }
-      ],
-      "process": "Pour everything to the glass add ice "
-    },
-    {
       "id": 7,
       "name": "Turbo Cola",
       "ingredients": [

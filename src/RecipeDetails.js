@@ -37,10 +37,11 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
 
                     <h5 className={"recipe--details--text"}>Recipe</h5>
                     <div className={"recipe--details--table"}>
-                        <h4 className={"recipe--details--text"}>For One</h4>
-                        <h4 className={"recipe--details--text"}>For All</h4>
-                        <div className={"list"}>
 
+
+                        <div className={"list"}>
+                            <h4 className={"recipe--details--text"}>For One</h4>
+                            <div className={"list--item"}>
                             <ul className={"process"}>
                                 {recipe.ingredients.map((ingredient,index) => (
                                     <li key={recipe.id}>{ingredient.name}</li>
@@ -51,9 +52,11 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                                     <li key={recipe.id}>{Math.round(ingredient.quantity*selectedOption.value/sum)}.ml</li>
                                 ))}
                             </ul>
+                            </div>
                         </div>
                         <div className={"list"}>
-
+                            <h4 className={"recipe--details--text"}>For All</h4>
+                            <div className={"list--item"}>
                             <ul className={"process"}>
                                 {recipe.ingredients.map((ingredient,index) => (
                                     <li>{ingredient.name}</li>
@@ -64,6 +67,7 @@ const RecipeDetails = ({recipe, close, deleteRecipe, glasses, cancel}) => {
                                     <li>{Math.round(ingredient.quantity*newQ*selectedOption.value/sum)}.ml</li>
                                 ))}
                             </ul>
+                            </div>
                         </div>
                     </div>
 
