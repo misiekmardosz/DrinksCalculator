@@ -1,5 +1,5 @@
 import './App.css';
-import {Recipe} from "./Recipe";
+import {Recipe} from "./components/Recipe";
 import "./scss/main.scss"
 
 function App() {

@@ -347,11 +347,12 @@ h2{
 .modal--open{
   position: absolute;
   box-shadow: 0 0 25px -10px rgba(66, 68, 90, 1);
-  top: 140px;
+  top: 100px;
+  max-height: 550px;
   color: $color-1;
   left: 40px;
   right: 40px;
-  bottom: 140px;
+  bottom: 100px;
   border: 1px solid #ccc;
   background: $color-8;
   overflow: auto;
@@ -460,8 +461,13 @@ h5{
   padding: 10px;
 }
 .div--button{
+  //height: 100%;
   display: flex;
+  overflow: scroll;
   justify-content: right;
+  align-items: flex-end;
+  bottom: 30px;
+  right: 30px;
   button{
     z-index: 2;
     display: flex;

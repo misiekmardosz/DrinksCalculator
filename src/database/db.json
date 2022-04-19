@@ -20,25 +20,6 @@
       "process": ""
     },
     {
-      "id": 9,
-      "name": "mega cola",
-      "ingredients": [
-        {
-          "name": "cola",
-          "quantity": "210"
-        },
-        {
-          "name": "sprite",
-          "quantity": "100"
-        },
-        {
-          "name": "fanta",
-          "quantity": "70"
-        }
-      ],
-      "process": "mieszamy składniki i nalewamy "
-    },
-    {
       "id": 10,
       "name": "Sugar sirup",
       "ingredients": [
