@@ -1,6 +1,12 @@
-# Getting Started with Create React App
-
+BoozeCounter is a web app for counting drinks recipes per person and glasses
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Table of Contents
+
+* Item 1
+* Item 2
+* Item 3
+
 
 ## Available Scripts
 
