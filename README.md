@@ -1,80 +1,63 @@
-BoozeCounter is a web app for counting drinks recipes per person and glasses
+DrinksCalculator is a web app for counting drinks recipes per person and glasses
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Table of Contents
 
 * [General Info](#general-info)
-* Technologies Used
-* Screenshots
-* Setup
-* Project Status
-* Room for Improvement
-* Contact
+* [Technologies Used](#technologies-used)
+* [Screenshots](#screenshots)
+* [Setup](#setup)
+* [Project Status](#project-status)
+* [Room for Improvement](#room-for-improvement)
+* [Contact](#contact)
+
+## General info
+
+* This is a graduation project of CodersLab bootcamp
+* Web app for counting recipes for drinks based on glass size and quantity, 
+  also you can save your recipes and glasses in database.
+* App is design for mobile only but also works on desktop
+* Design was invented by myself based on modern rules and current trends
+
+## Technologies Used
+* React 
+* React Modal 
+* Bootstrap
+* HTML
+* SCSS
+* JavaScript
 
 
-## Available Scripts
 
-In the project directory, you can run:
+## Screenshots
+Main Page
 
-### `npm start`
+![Main Page](public/screenShots/mainPage.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Add Recipe
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Add Recipe](public/screenShots/addRecipe.png)
 
-### `npm test`
+Add Glass
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Add Glass](public/screenShots/addGlass.png)
 
-### `npm run build`
+Recipe Details
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Recipe Details](public/screenShots/recipeDetails.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Download or clone repository / git clone repo_address
+* Install dependencies / npm install
+* Start app by npm start
 
-### `npm run eject`
+## Room for Improvement
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* creating version for desktop 
+* saving ingredients 
+* creating version for meals 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contact
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## General Info
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Created by [Michał Mardosz](#https://www.linkedin.com/in/micha%C5%82-mardosz-298892228/) 
