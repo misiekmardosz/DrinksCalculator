@@ -60,4 +60,4 @@ Recipe Details
 
 ## Contact
 
-Project Created by [Michał Mardosz](#https://www.linkedin.com/in/micha%C5%82-mardosz-298892228/) 
+Project Created by [Michał Mardosz](https://www.linkedin.com/in/micha%C5%82-mardosz-298892228/) 
