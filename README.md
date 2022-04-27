@@ -23,6 +23,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * React 
 * React Modal 
 * Bootstrap
+* JSON server
 * HTML
 * SCSS
 * JavaScript
@@ -49,8 +50,11 @@ Recipe Details
 ## Setup
 
 * Download or clone repository / git clone repo_address
-* Install dependencies / npm install
+* Install dependencies / npm install 
+* Install JSON sevrer / npm install -g json-server
+* Start JSON server on database file by json-server --watch db.json
 * Start app by npm start
+
 
 ## Room for Improvement
 
